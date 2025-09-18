@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    header{
+        display: flex;
+        margin: 25px 0 0 0;
+        .header-icon{
+            height: 42px;
+            width: 79px;
+            margin: 0 0 0 15px;
+        }
+        .burger-menu{
+            margin: 0 15px 0 0 ;
+            margin-left: auto; 
+        }
+       h2{
+        color: white;
+        margin: 9px 0 9px 10px;
+        
+       }
+    }
+}
