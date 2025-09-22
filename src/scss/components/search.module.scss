@@ -1,0 +1,24 @@
+.searchInput {
+  flex: 1; /* Инпут растягивается на всё доступное пространство */
+  padding: 12px 16px; /* Отступы как в макете */
+  border: none; /* Убираем внутренние границы */
+  background: transparent; /* Прозрачный фон */
+  color: #ffffff; /* Белый текст */
+  font-size: 18px; /* Размер шрифта как в макете */
+  outline: none; /* Без подсветки фокуса по умолчанию */
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Полупрозрачный цвет плейсхолдера */
+  }
+}
+
+.searchButton {
+  width: 48px; /* Фиксированная ширина иконки */
+  border: none; /* Убираем рамку кнопки */
+  background: transparent; /* Прозрачный фон */
+  display: flex; /* Flex для центрирования иконки */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+  cursor: pointer; /* Курсор-рука */
+  color: #ffffff; /* Белая иконка */
+  font-size: 20px; /* Размер иконки-лупы */
+}

@@ -1,0 +1,64 @@
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #0d0d0d;
+  background-image:
+    radial-gradient(circle at left, rgba(126,126,255,0.3), transparent),
+    radial-gradient(circle at right, rgba(46,46,126,0.3), transparent);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+
+    .logo {
+      font-size: 24px;
+      font-style: italic;
+    }
+
+    .menuButton {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 18px;
+      padding: 0;
+
+      span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  .title {
+    margin: 50px 0 80px;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .search {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: flex; /* Flex-контейнер для выравнивания инпута и кнопки */  
+  border: 1px solid #ffffff; /* Белая рамка по макету */  
+  border-radius: 8px; /* Скругление углов */  
+  overflow: hidden; /* Убирает двойные границы между элементами */  
+}
+
+
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
