@@ -1,14 +1,17 @@
+import Newspaper from "./pages/newspaper";
+import Header from "./components/Header";
 import "./scss/app.scss";
+import { Route , Routes } from "react-router";
 
 function App() {
 
   return (
     <>
-      <header>
-        <img className="header-icon" src="img/header-footer-icon.svg" alt="icon" />
-        <h2>Arete</h2>
-        <img className="burger-menu" src="img/burger-menu.svg" alt="menu"/>
-      </header>
+      <Header/>
+
+      <Routes>
+        <Route path="/newespaper" element={<Newspaper />} />
+      </Routes>
     </>
   )
 }

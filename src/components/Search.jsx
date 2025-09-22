@@ -1,12 +1,14 @@
 import React from "react";
-import styles from "../scss/search.module.scss";
+import styles from "../scss/components/search.module.scss";
 
 const Search = () => {
   return (
-    <div className={styles.searchBox}>
-      <input type="text" placeholder="Поиск"></input>
-      <button>🔍</button>
-    </div>
+    <>
+      <input type="text" className={styles.searchInput} placeholder="Поиск" />
+      <button className={styles.searchButton}>
+        <img src="public/img/search-icon.svg" alt="search" />
+      </button>
+    </>
   );
 };
 

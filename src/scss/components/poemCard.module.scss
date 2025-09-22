@@ -1,0 +1,27 @@
+ .card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+
+      .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+
+        .cardType {
+          font-size: 14px;
+          opacity: 0.8;
+        }
+
+        .cardAuthor {
+          font-size: 14px;
+          opacity: 0.8;
+        }
+      }
+
+      .cardContent {
+        font-size: 16px;
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+    }
