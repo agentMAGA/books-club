@@ -1,5 +1,5 @@
 body {
-    margin: 0 0 0 0;
+    margin: 0 0 auto 0;
     background-color: #141619;
     color: #ffffff;
 
@@ -8,17 +8,5 @@ body {
         text-align: justify
     }
 
-    .visualBackdrop {
-        margin: 20px 15px 0 15px;
-        border-radius: 30px ;
-        background: rgba(255, 255, 255, 0.15); // #FFFFFF40
-        -webkit-backdrop-filter: blur(10px); // эффект стекла / матовости
-        backdrop-filter: blur(10px);   // для Safari
-        display: flex;
 
-        .titleEvents{
-            justify-content: center;
-        }
-
-    }
 }
