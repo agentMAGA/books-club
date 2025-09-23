@@ -1,19 +1,20 @@
 import Newspaper from "./pages/newspaper";
 import Header from "./components/Header";
 import "./scss/app.scss";
-import { Route , Routes } from "react-router";
+import { Route, Routes } from "react-router";
+import Footer from "./components/Footer";
+import LiveSessions from "./pages/LiveSessions";
 
 function App() {
-
   return (
     <>
-      <Header/>
-
-      <Routes>
-        <Route path="/newespaper" element={<Newspaper />} />
-      </Routes>
       <Header />
-      <main>
+      <Routes>
+        <Route path="/newspaper" element={<Newspaper />} />
+        <Route path="/livesessions" element={<LiveSessions />} />
+      </Routes>
+      <Footer />
+      {/* <main>
 
         <section className="innerSpacing">
 
@@ -45,9 +46,9 @@ function App() {
 
         </section>
 
-      </main>
+      </main> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
