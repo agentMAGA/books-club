@@ -3,18 +3,21 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import "./scss/app.scss";
 import { Route, Routes } from "react-router";
+import Footer from "./components/Footer";
+import LiveSessions from "./pages/LiveSessions";
 
 function App() {
-
   return (
     <>
 
-      <Routes>
-        <Route path="/newspaper" element={<Newspaper />} />
-      </Routes>
-
       <Header />
       <Home />
+      <Routes>
+        <Route path="/newspaper" element={<Newspaper />} />
+        <Route path="/livesessions" element={<LiveSessions />} />
+      </Routes>
+      <Footer />
+      {/* <main>
 
       <div className="visualBackdrop">
         <h4 className="titleEvents">Мероприятия</h4>
@@ -50,8 +53,22 @@ function App() {
           </nav>
         </div>
       </div>
+          <p>Наш клуб — это созвездие искателей.  </p>
+
+          <p>Мы — навигаторы в безграничном космосе искусства, дизайна, кино, литературы и многого другого.</p>
+
+          <p>
+            Здесь мы помогаем друг другу прокладывать путь к своим звездам,
+            делимся взглядами для расширения кругозора и вдохновением для души.
+          </p>
+
+          <p>Мы оставляем границы позади, чтобы достичь своей Arête.</p>
+
+        </section>
+
+      </main> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
