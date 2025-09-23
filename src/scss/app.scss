@@ -2,11 +2,54 @@ body {
     margin: 0 0 auto 0;
     background-color: #141619;
     color: #ffffff;
+    background-color: #0a0a1f; /* основа */
+    
+    background-image: radial-gradient(
+        circle at 20% 30%,
+        rgba(255, 255, 255, 0.115),
+        transparent 40%
+        ),
+        radial-gradient(
+        circle at 70% 60%,
+        rgba(255, 200, 255, 0.2),
+        transparent 30%
+        ),
+        radial-gradient(
+        circle at 50% 80%,
+        rgba(180, 180, 255, 0.15),
+        transparent 25%
+        );
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    .visualBackdrop {
+        margin: 40px 15px 0 15px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.27); // #FFFFFF40
+        display: flex;
+        flex-direction: column; /* ← Важно! Теперь дети идут сверху вниз */
+        align-items: center; /* ← Центрирует всех детей по горизонтали */
+        padding: 15px 30px 30px 30px;  /* ← Добавь padding, чтобы не прилипало к краям */
+        gap: 20px; /* ← Расстояние между детьми (заголовок → контент) */
+        color: white;
+        box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
 
-    .innerSpacing {
-        margin: 0 15px 0 15px;
-        text-align: justify
+        .titleEvents {
+            margin:  0 0 10px 0 ; /* ← Убери margin-right: auto — он ломает центрирование */
+            font-size: 24px;
+        }
+    
+        .subtextOfTheEvent {
+            display: flex;
+            flex-direction: row; /* ← Если хочешь, чтобы nav, div, nav шли в строку */
+            align-items: center; /* ← Центрируем их по вертикали внутри строки */
+            gap: 20px; /* ← Отступы между блоками */
+            width: 100%; /* ← Чтобы занял всю ширину родителя */
+            justify-content: space-between; /* ← Кнопки по краям, контент по центру */
+            border: 1px solid #ffffff;
+            border-radius: 30px;
+            background-color: #141619;
+        }
     }
-
 
 }
