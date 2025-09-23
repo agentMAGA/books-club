@@ -1,10 +1,9 @@
 import React from "react";
-import PoemCard from "../components/PoemCard";
-import styles from "../scss/pages/newspaper.module.scss";
+import styles from "../scss/pages/liveSessions.module.scss";
 import Search from "../components/Search";
 
-const Newspaper = () => {
-  return (
+const LiveSessions = () => {
+    return (
     <>
       <div className={styles.container}>
         <h1 className={styles.title}>Газета</h1>
@@ -12,12 +11,10 @@ const Newspaper = () => {
           <Search />
         </div>
         <div className={styles.cards}>
-          <PoemCard />
-          <PoemCard />
         </div>
       </div>
     </>
-  );
+    );
 };
 
-export default Newspaper;
+export default LiveSessions;
