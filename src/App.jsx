@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/newspaper" element={<Newspaper />} />
         <Route path="/livesessions" element={<LiveSessions />} />
         <Route path="/settings" element={<Settings />} />

@@ -3,21 +3,18 @@ body {
   color: #ffffff;
   background-color: #0a0a1f; /* основа */
 
-  background-image: radial-gradient(
-      circle at 20% 30%,
-      rgba(255, 255, 255, 0.15),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(255, 200, 255, 0.2),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 80%,
-      rgba(180, 180, 255, 0.15),
-      transparent 25%
-    );
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-image: radial-gradient(circle at 20% 30%,
+            rgba(255, 255, 255, 0.115),
+            transparent 40%),
+        radial-gradient(circle at 70% 60%,
+            rgba(255, 200, 255, 0.2),
+            transparent 30%),
+        radial-gradient(circle at 50% 80%,
+            rgba(180, 180, 255, 0.15),
+            transparent 25%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+
 }
