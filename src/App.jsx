@@ -3,6 +3,7 @@ import "./scss/app.scss";
 import { Route, Routes } from "react-router";
 import LiveSessions from "./pages/LiveSessions";
 import Settings from "./pages/Settings";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/newspaper" element={<Newspaper />} />
         <Route path="/livesessions" element={<LiveSessions />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
