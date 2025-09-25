@@ -6,7 +6,7 @@ const Search = () => {
     <>
       <input type="text" className={styles.searchInput} placeholder="Поиск" />
       <button className={styles.searchButton}>
-        <img src="public/img/search-Icon.svg" alt="search" />
+        <img src="img/search-icon.svg" alt="search" />
       </button>
     </>
   );

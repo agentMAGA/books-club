@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <span>Arête</span>
-      <img src="img/header-footer-icon.svg" alt="icon" />
+      <img src="img/logo.svg" alt="icon"/>
     </footer>
   );
 };
