@@ -1,0 +1,120 @@
+.main {
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+
+  .title {
+    margin: 100px 0 80px;
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .avatar {
+      position: relative;
+      margin: 0 auto 40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: visible; /* разрешаем элементам выходить за пределы */
+      border: 2px solid #ffffff;
+
+      .avatarImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%; /* чтобы изображение точно было кругом */
+        display: block;
+      }
+
+      .editAvatar {
+        position: absolute;
+        bottom: -10px; /* немного выходит за нижний край */
+        right: -10px; /* немного выходит за правый край */
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        padding: 10px; /* чтобы иконка внутри круга была меньше */
+        box-sizing: content-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+
+    }
+  }
+
+  .container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 360px;
+  color: #fff;
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 20px 10px;
+    border-radius: 12px;
+    gap: 12px;
+    background-color: #14161980;
+
+    .title {
+      font-size: 20px;
+      margin: 0;
+      margin-bottom: 4px;
+    }
+
+    .input {
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .textarea {
+      padding: 12px 14px;
+      min-height: 70px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+      resize: vertical;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+}
+
+}
