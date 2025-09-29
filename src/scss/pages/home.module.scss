@@ -20,4 +20,93 @@ main{
         line-height: 1.2;
         margin: 0 0 20px 0 ;
     }
+    .cards {
+        margin: 30px 15px 0 15px;
+        display: flex;;
+        justify-content: center;
+        flex-direction: column;
+
+        .h3title{
+            display: flex;
+            justify-content: center;
+        }
+
+        .visualBackdrop {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 200px;
+            font-style: italic;
+
+            .poemCardWrapper{
+                position: relative; 
+                z-index: 1; 
+                font-size: 10px !important; 
+                
+            }
+
+            .leftArrow{
+                background: rgba(255, 255, 255, 0.27);
+                -webkit-backdrop-filter: blur(8px);   /* ← для Safari и iOS */
+                backdrop-filter: blur(8px);
+                margin: 0 0 0 -348px;
+                border-radius: 5px;
+                border: 2px solid #ffffff;
+                padding: 0 5px 2px 5px;
+                height: 30px;
+                width: 20px;
+                position: absolute;
+                z-index: 2;
+    
+                
+    
+                button{
+                    background: transparent;   
+                    border: none;   
+                    color: white;
+                    font-size: 20px;
+                    width: 100%;      
+                    height: 100%; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+    
+            
+            .rightArrow{
+                background: rgba(255, 255, 255, 0.27);
+                -webkit-backdrop-filter: blur(8px);   /* ← для Safari и iOS */
+                backdrop-filter: blur(8px);
+                margin: 0 -348px 0 0;
+                border-radius: 5px;
+                border: 2px solid #ffffff;
+                display: flex; 
+                padding: 0 4px 2px 4px;
+                height: 30px;
+                width: 20px;
+                position: absolute;
+                z-index: 2;
+    
+    
+                button{
+                    background: transparent;   
+                    border: none;   
+                    color: white;
+                    font-size: 20px;
+                    width: 100%;      
+                    height: 100%; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            
+        }
+
+       
+    }
+    
 }

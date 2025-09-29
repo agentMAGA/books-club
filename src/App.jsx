@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router";
 import LiveSessions from "./pages/LiveSessions";
 import Settings from "./pages/Settings";
 import LoginPage from "./pages/LoginPage";
+import Home from "./pages/Home";
 
 function App() {
   return (
