@@ -1,0 +1,126 @@
+.container {
+  height: 100vh;
+  padding: 30px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.115),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(255, 200, 255, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(180, 180, 255, 0.15),
+      transparent 25%
+    ),
+    #0a0a1f;
+  color: white;
+  font-family: "Times New Roman", serif;
+  position: relative;
+  text-align: center;
+
+  .header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    img {
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      user-select: none;
+    }
+  }
+
+  .logo {
+    margin-top: 30px;
+
+    img {
+      width: 130px;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.2;
+
+      span {
+        font-size: 18px;
+        font-style: italic;
+      }
+    }
+  }
+
+  .progress {
+    margin: 30px 0 40px;
+    width: 100%;
+
+    .progressTitle {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 12px;
+      opacity: 0.7;
+    }
+
+    .progressBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .progressStep {
+        flex: 1;
+        height: 4px;
+        margin: 0 5px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+
+        &.active {
+          background: white;
+          height: 6px;
+        }
+      }
+    }
+  }
+
+  .form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .input {
+      background: transparent;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 18px;
+      color: white;
+      font-family: "Times New Roman", serif;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .submitButton {
+      background: white;
+      color: black;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 0;
+      font-size: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
