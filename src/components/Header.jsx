@@ -5,7 +5,7 @@ import BurgerMenu from "./BurgerMenu";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const openMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
@@ -22,7 +22,7 @@ const Header = () => {
           className={styles.burgerMenu}
           src="img/burger-menu.svg"
           alt="menu"
-          onClick={toggleMenu}
+          onClick={openMenu}
         />
       </header>
 
