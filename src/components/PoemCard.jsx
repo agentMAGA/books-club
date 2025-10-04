@@ -14,13 +14,14 @@ const poem = `В бескрайних страницах Вселенной
 Читать — значит странствовать без края,
 Скользить сквозь время, звезды и года.
 В библиотеке мира, открывая
-Бесконечность — снова и всегда.`;
+Бесконечность — снова и всегда.
+`;
 
 const PoemCard = () => (
   <div className={styles.card}>
     <div className={styles.cardHeader}>
-      <span className={styles.cardType}>Стих</span>
-      <span className={styles.cardAuthor}>Иванов И.</span>
+      <span className={styles.cardType + " " + styles.monstratStyls300}>Стих</span>
+      <span className={styles.cardAuthor + " " + styles.monstratStyls300}>Иванов И.</span>
     </div>
     <pre className={styles.cardContent}>{poem}</pre>
   </div>

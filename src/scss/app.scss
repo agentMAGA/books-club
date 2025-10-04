@@ -1,11 +1,11 @@
 body {
   margin: 0 0 auto 0;
   color: #ffffff;
-  background-color: #0a0a1f; /* основа */
+  background-color: #141619 ; /* основа */
 
     background-image: radial-gradient(circle at 20% 30%,
-            rgba(255, 255, 255, 0.115),
-            transparent 40%),
+            rgba(255, 255, 255, 0.26),
+            transparent 30%),
         radial-gradient(circle at 70% 60%,
             rgba(255, 200, 255, 0.2),
             transparent 30%),
@@ -14,7 +14,6 @@ body {
             transparent 25%);
     background-repeat: no-repeat;
     background-size: cover;
-
-    
-
+    // font-family: "Garamond Premier Pro", serif , "Cormorant Garamond";
+    // font-family: "Montserrat";
 }

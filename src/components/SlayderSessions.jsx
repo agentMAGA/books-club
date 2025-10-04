@@ -12,8 +12,8 @@ import styles from "../scss/components/slayderSessions.module.scss";
                 </nav>
                 <div>
                     <article>
-                        <p><strong>Собрание книжного клуба</strong></p>
-                        <p>
+                        <p><strong className={styles.monstratStyls400}>Собрание книжного клуба</strong></p>
+                        <p className={styles.monstratStyls300}> 
                             Morem ipsum dolor sit amet,
                             consectetur adipiscing elit.
                             Etiam eu turpis molestie, dictum est a, mattis tellus.
@@ -21,7 +21,7 @@ import styles from "../scss/components/slayderSessions.module.scss";
                         </p>
                     </article>
                     <article className={styles.timeRangeDate}>
-                        <p>24.08.2025 13:00 -<br />24.08.2025 14:00</p>
+                        <p className={styles.monstratStyls300}>24.08.2025 13:00 -<br />24.08.2025 14:00</p>
                         <div className={styles.usersIcon}>
                             <img src="img\usersIcons.svg" alt="usersIcons" />
                             <span className={styles.numberUsers}>14</span>
