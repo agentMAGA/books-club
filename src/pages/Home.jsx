@@ -11,9 +11,9 @@ function Home() {
       <Header />
       <main>
         <section className={styles.innerSpacing}>
-          <h1>Books Club</h1>
+          <h1 className={styles.titleStyls}>Books Club</h1>
           <p className={styles.subtextTitle + " " +styles.tecstUppercase}>Космос идей. Вселенная книг.</p>
-          <button className={styles.tecstUppercase}>Присоединиться</button>
+          <button className={styles.tecstUppercase + " " + styles.buttonFonts}>Присоединиться</button>
         </section>
         <section className={styles.innerSpacing}>
           <h2 className={styles.titleCenter}>О нас </h2>
@@ -22,7 +22,7 @@ function Home() {
             Мы начали с книг, ведь именно они зажигают в нас первые звезды любознательности.
             Но наш путь не заканчивается на этом — он только начинается.
           </p>
-          <p>Наш клуб — это созвездие искателей.  </p>
+          <p className={styles.textRegulirovca}>Наш клуб — это созвездие искателей.  </p>
           <p className={styles.textRegulirovca}>Мы — навигаторы в безграничном космосе искусства, дизайна, кино, литературы и многого другого.</p>
           <p className={styles.textRegulirovca}>
             Здесь мы помогаем друг другу прокладывать путь к своим звездам,

@@ -21,11 +21,21 @@
      }
    }
 
+   .montserat300 {
+     font-family: "Montserrat", sans-serif; // Стили для шрифта
+     font-style: medium;
+     font-weight: 300;
+   }
+
    .cardContent {
      font-size: 13.5px;
      padding: 0 10px 0 40px;
-     line-height: 1.2;
+     line-height: 1.3;
      white-space: pre-wrap;
 
+     font-family: "Montserrat", sans-serif; // Стили для шрифта
+     font-style: medium;
+     font-weight: 400;
+
    }
-}
+ }

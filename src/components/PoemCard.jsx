@@ -20,8 +20,8 @@ const poem = `В бескрайних страницах Вселенной
 const PoemCard = () => (
   <div className={styles.card}>
     <div className={styles.cardHeader}>
-      <span className={styles.cardType}>Стих</span>
-      <span className={styles.cardAuthor}>Иванов И.</span>
+      <span className={styles.cardType + " " + styles.monstratStyls300}>Стих</span>
+      <span className={styles.cardAuthor + " " + styles.monstratStyls300}>Иванов И.</span>
     </div>
     <pre className={styles.cardContent}>{poem}</pre>
   </div>

@@ -34,6 +34,8 @@
       cursor: pointer;
       width: 26px;
       height: 26px;
+      -webkit-user-select: none; /* для Safari, iOS */
+      -moz-user-select: none;    /* для Firefox (опционально) */
       user-select: none;
     }
   }
@@ -44,6 +46,8 @@
     img {
       width: 130px;
       margin-bottom: 10px;
+      -webkit-user-select: none; /* для Safari, iOS */
+      -moz-user-select: none;    /* для Firefox (опционально) */
       user-select: none;
     }
 
@@ -120,6 +124,8 @@
       padding: 12px 0;
       font-size: 20px;
       cursor: pointer;
+      -webkit-user-select: none; /* для Safari, iOS */
+      -moz-user-select: none;    /* для Firefox (опционально) */
       user-select: none;
     }
   }
