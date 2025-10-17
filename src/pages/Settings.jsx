@@ -8,7 +8,9 @@ const Settings = () => {
     <>
       <div className={styles.main}>
         <header className={styles.header}>
-          <Link to = "/"><img src="img/back.svg" alt="back" /></Link>
+          <Link to="/">
+          <img src="img/back.svg" alt="back" />
+          </Link>
         </header>
         <div className={styles.title}>
           <h3>Настройки</h3>

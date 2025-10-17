@@ -1,54 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
+import {NavLink} from "react-router-dom"
 import styles from "../scss/pages/singUp.module.scss";
 
-const SingUp = () => {
-  return (
-    <>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <img src="img/back.svg" alt="back" />
-        </header>
+export default function SingUp() {
+  const [step, setStep] = useState(0); // 0..4
 
+  const titles = [
+    "Основная информация",
+    "Контакты для связи",
+    "Род деятельности",
+    "О себе",
+    "Род деятельности",
+  ];
+  const next = () => setStep((s) => Math.min(s + 1, 4));
+  const back = () => setStep((s) => Math.max(s - 1, 0));
+
+  return (
+    <div className={styles.container}>
+      {/* Верхняя панель с системной кнопкой назад */}
+      <header className={styles.header}>
+        <button type="button" className={styles.backBtn} onClick={back} aria-label="Назад">
+          <NavLink to="/login">
+          <img src="/img/back.svg" alt="" />
+          </NavLink>
+        </button>
+      </header>
+
+      {/* Прокручиваемая область контента */}
+      <div className={styles.contentScroll}>
         <div className={styles.logo}>
-          <img src="/img/logo.svg" alt="Logo" />
+          <NavLink to="/"><img src="/img/logo.svg" alt="Logo" /></NavLink>
           <h1 className={styles.title}>
             Анкета <br />
             <span>для регистрации</span>
           </h1>
         </div>
 
+        {/* Степпер */}
         <div className={styles.progress}>
-          <span className={styles.progressTitle}>Основная информация</span>
+          <span className={styles.progressTitle}>{titles[step]}</span>
           <div className={styles.progressBar}>
-            <div className={styles.progressStep + " " + styles.active}></div>
-            <div className={styles.progressStep}></div>
-            <div className={styles.progressStep}></div>
-            <div className={styles.progressStep}></div>
-            <div className={styles.progressStep}></div>
-            <div className={styles.progressStep}></div>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <span
+                key={i}
+                className={`${styles.progressStep} ${i <= step ? styles.active : ""}`}
+              />
+            ))}
           </div>
         </div>
 
-        <form className={styles.form}>
-          <input type="text" placeholder="ФИО" className={styles.input} />
-          <input
-            type="date"
-            placeholder="Дата рождения"
-            className={styles.input}
-          />
-          <input
-            type="text"
-            placeholder="Город проживания"
-            className={styles.input}
-          />
+        {/* Шаги (только поля, без кнопок) */}
+        <div className={styles.steps}>
+          {/* Шаг 1 */}
+          <form className={`${styles.form} ${step === 0 ? styles.isActive : ""}`}>
+            <input type="text" placeholder="ФИО" className={styles.input} />
+            <input type="date" placeholder="Дата рождения" className={styles.input} />
+            <input type="text" placeholder="Город проживания" className={styles.input} />
+          </form>
 
-          <button type="submit" className={styles.submitButton}>
-            Далее
-          </button>
-        </form>
+          {/* Шаг 2 */}
+          <form className={`${styles.form} ${step === 1 ? styles.isActive : ""}`}>
+            <input type="email" placeholder="E-mail" className={styles.input} />
+            <input type="tel" placeholder="Телефон (WhatsApp)" className={styles.input} />
+            <input type="text" placeholder="Telegram" className={styles.input} />
+            <input type="text" placeholder="Instagram (при наличии)" className={styles.input} />
+          </form>
+
+          {/* Шаг 3 */}
+          <form className={`${styles.form} ${step === 2 ? styles.isActive : ""}`}>
+            <input type="text" placeholder="Место работы / Учебное заведение" className={styles.input} />
+            <input type="text" placeholder="Должность / Специальность" className={styles.input} />
+            <input type="text" placeholder="Курс и форма обучения (если студент)" className={styles.input} />
+            <input type="text" placeholder="Класс (если школа)" className={styles.input} />
+          </form>
+
+          {/* Шаг 4 — О себе */}
+          <form className={`${styles.form} ${step === 3 ? styles.isActive : ""}`}>
+            <input type="text" placeholder="Национальность" className={styles.input} />
+            <textarea placeholder="Ключевые навыки и сильные стороны (без скромности)" className={styles.textarea} rows={3} />
+            <textarea placeholder="Интересы и увлечения" className={styles.textarea} rows={3} />
+          </form>
+
+          {/* Шаг 5 — Интересы/медиа */}
+          <form className={`${styles.form} ${step === 4 ? styles.isActive : ""}`}>
+            <textarea placeholder="Любимые книги, фильмы, сериалы (можно кратко пояснить выбор)" className={styles.textarea} rows={3} />
+            <textarea placeholder="Любимые жанры и почему именно они" className={styles.textarea} rows={3} />
+          </form>
+        </div>
       </div>
-    </>
-  );
-};
 
-export default SingUp;
+      {/* Футер с кнопками — всегда у нижнего края, всегда вертикально */}
+      <div className={styles.footerActions}>
+                <button
+          type="button"
+          className={styles.submitButton}
+          onClick={next}
+        >
+          Далее
+        </button>
+        
+        <button
+          type="button"
+          className={styles.secondaryButton}
+          onClick={back}
+          disabled={step === 0}
+        >
+          Назад
+        </button>
+
+
+      </div>
+    </div>
+  );
+}
