@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../scss/components/header.module.scss";
 import BurgerMenu from "./BurgerMenu";
+import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,8 +17,8 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <img className={styles.headerIcon} src="img/logo.svg" alt="icon" />
-        <h2 className={styles.title}>Arête</h2>
+        <Link to = "/"><img className={styles.headerIcon} src="img/logo.svg" alt="icon" /></Link>
+        <Link to = "/"><img className={styles.title} src="img/logo-text.svg" alt="logo-text" /></Link>
         <img
           className={styles.burgerMenu}
           src="img/burger-menu.svg"

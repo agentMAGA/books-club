@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../scss/components/burgerMenu.module.scss";
+import { Link } from "react-router";
 
 const BurgerMenu = ({ closeMenu }) => {
   return (
@@ -16,11 +17,11 @@ const BurgerMenu = ({ closeMenu }) => {
       </div>
 
       <nav className={styles.menu}>
-        <li className={styles.menuItem + " " + styles.active}>Главная</li>
-        <li className={styles.menuItem}>Мероприятия</li>
-        <li className={styles.menuItem}>Статьи</li>
+        <Link to = "/" className={styles.menuItem + " " + styles.active}>Главная</Link>
+        <Link to = "/happenings" className={styles.menuItem}>Мероприятия</Link>
+        <Link to = "/Newspaper" className={styles.menuItem}>Статьи</Link> {/*Газета*/}
         <li className={styles.menuItem}>Рейтинг</li>
-        <li className={styles.menuItem}>Настройки</li>
+        <Link to = "/settings" className={styles.menuItem}>Настройки</Link>
         <li className={styles.menuItem + " " + styles.exit}>
           Выйти <span className={styles.exitIcon}>⎋</span>
         </li>
