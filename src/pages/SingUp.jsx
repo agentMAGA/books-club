@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {NavLink} from "react-router-dom"
 import styles from "../scss/pages/singUp.module.scss";
 
 export default function SingUp() {
@@ -19,14 +20,16 @@ export default function SingUp() {
       {/* Верхняя панель с системной кнопкой назад */}
       <header className={styles.header}>
         <button type="button" className={styles.backBtn} onClick={back} aria-label="Назад">
+          <NavLink to="/login">
           <img src="/img/back.svg" alt="" />
+          </NavLink>
         </button>
       </header>
 
       {/* Прокручиваемая область контента */}
       <div className={styles.contentScroll}>
         <div className={styles.logo}>
-          <img src="/img/logo.svg" alt="Logo" />
+          <NavLink to="/"><img src="/img/logo.svg" alt="Logo" /></NavLink>
           <h1 className={styles.title}>
             Анкета <br />
             <span>для регистрации</span>
