@@ -43,7 +43,7 @@ const BurgerMenu = ({ closeMenu }) => (
       </NavLink>
 
       <NavLink
-        to="/livesessions"
+        to="/happenings"
         className={({ isActive }) =>
           isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
         }
