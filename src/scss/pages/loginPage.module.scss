@@ -23,6 +23,8 @@
       font-weight: 400;
       font-size: 32px;
       color: #fff;
+      -webkit-user-select: none; /* для Safari, iOS */
+      -moz-user-select: none;    /* для Firefox (опционально) */
       user-select: none;
       margin: 0;
     }
@@ -75,6 +77,8 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      -webkit-user-select: none; /* для Safari, iOS */
+      -moz-user-select: none;    /* для Firefox (опционально) */
       user-select: none;
       transition: background-color 0.2s ease;
 
