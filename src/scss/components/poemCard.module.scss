@@ -1,30 +1,52 @@
- .card {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 20px;
-      color: white;
-      box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
+.card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 16px 16px 12px;
+  color: #fff;
+  box-shadow: 0 0 30px 15px rgba(255,255,255,0.1);
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* дата всегда внизу */
+  row-gap: 8px;
+  max-width: 100%;
 
-      .cardHeader {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 12px;
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
 
-        .cardType {
-          font-size: 14px;
-          opacity: 0.8;
-        }
-
-        .cardAuthor {
-          font-size: 14px;
-          opacity: 0.8;
-        }
-      }
-
-      .cardContent {
-        font-size: 16px;
-        line-height: 1.5;
-        white-space: pre-wrap;
-        
-      }
+    .cardType, .cardAuthor {
+      font-size: 14px;
+      opacity: 0.8;
+      font-style: italic;
+      white-space: nowrap;
     }
+  }
+
+  .cardBody {
+    .titleLine {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .cardContent {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: rgba(255,255,255,0.92);
+      font-style: italic;
+    }
+  }
+
+  .cardFooter {
+    display: flex;
+    justify-content: flex-end;
+
+    .date {
+      font-size: 12px;
+      opacity: 0.85;
+      font-style: italic;
+    }
+  }
+}
