@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "../scss/pages/settings.module.scss";
 import Footer from "../components/Footer";
+import { Link } from "react-router";
 
 const Settings = () => {
   return (
     <>
       <div className={styles.main}>
         <header className={styles.header}>
+          <Link to="/">
           <img src="img/back.svg" alt="back" />
+          </Link>
         </header>
         <div className={styles.title}>
           <h3>Настройки</h3>

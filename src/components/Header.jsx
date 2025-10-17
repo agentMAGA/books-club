@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../scss/components/header.module.scss";
 import BurgerMenu from "./BurgerMenu";
 
@@ -16,7 +17,9 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
+        <NavLink to="/">
         <img className={styles.headerIcon} src="img/logo.svg" alt="icon" />
+        </NavLink>
         <h2 className={styles.title}>Arête</h2>
         <img
           className={styles.burgerMenu}

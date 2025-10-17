@@ -1,10 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../scss/pages/loginPage.module.scss";
 
 const LoginPage = () => (
   <div className={styles.container}>
     <div className={styles.logo}>
+      <NavLink to= "/">
       <img src="img/logo.svg" alt="logo" />
+      </NavLink>
       <h1 className={styles.logoText}>Arête</h1>
     </div>
 
@@ -21,9 +24,9 @@ const LoginPage = () => (
       </button>
     </form>
 
-    <a href="#" className={styles.registerLink}>
+    <NavLink to="/singup" className={styles.registerLink}>
       Зарегистрироваться
-    </a>
+    </NavLink>
   </div>
 );
 
