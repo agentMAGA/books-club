@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../scss/components/header.module.scss";
 import BurgerMenu from "./BurgerMenu";
+import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

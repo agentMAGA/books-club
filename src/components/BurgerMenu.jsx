@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../scss/components/burgerMenu.module.scss";
+import { Link } from "react-router";
 
 const BurgerMenu = ({ closeMenu }) => (
   <aside className={styles.burgerMenu} role="dialog" aria-modal="true">
