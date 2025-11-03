@@ -220,10 +220,11 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
   }
 }
 
-/* модификаторы-дубликаты для совместимости с JSX */
+/* модификаторы-дубликаты для совместимости с JSX 
 .progressStep {}
 .active {}
 .isActive {}
+*/
 
 /* Тюнинг для узких телефонов */
 @media (max-width: 340px) {
