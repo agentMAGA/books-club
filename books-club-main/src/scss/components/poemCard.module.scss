@@ -1,0 +1,132 @@
+.card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 16px 16px 12px;
+  color: #fff;
+  box-shadow: 0 0 30px 15px rgba(255,255,255,0.1);
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* дата всегда внизу */
+  row-gap: 8px;
+  max-width: 100%;
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .cardType, .cardAuthor {
+      font-size: 14px;
+      opacity: 0.8;
+      font-style: italic;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 48%;
+    }
+  }
+
+  .cardBody {
+    min-height: 0;
+    overflow: hidden;
+
+    .titleLine {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .cardContent {
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: rgba(255,255,255,0.92);
+      font-style: italic;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      overflow: hidden;
+    }
+  }
+
+  .cardFooter {
+    display: flex;
+    justify-content: flex-end;
+
+    .date {
+      font-size: 12px;
+      opacity: 0.85;
+      font-style: italic;
+    }
+  }
+}
+
+// Планшеты (768px и выше)
+@media (min-width: 768px) {
+  .card {
+    padding: 20px 20px 16px;
+    border-radius: 12px;
+
+    .cardHeader {
+      .cardType, .cardAuthor {
+        font-size: 16px;
+      }
+    }
+
+    .cardBody {
+      .titleLine {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+
+      .cardContent {
+        font-size: 18px;
+        line-height: 1.7;
+      }
+    }
+
+    .cardFooter {
+      .date {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Ноутбуки и ПК (1024px и выше)
+@media (min-width: 1024px) {
+  .card {
+    padding: 24px 24px 20px;
+    border-radius: 14px;
+
+    .cardHeader {
+      margin-bottom: 8px;
+
+      .cardType, .cardAuthor {
+        font-size: 18px;
+      }
+    }
+
+    .cardBody {
+      .titleLine {
+        font-size: 28px;
+        margin-bottom: 14px;
+      }
+
+      .cardContent {
+        font-size: 20px;
+        line-height: 1.8;
+      }
+    }
+
+    .cardFooter {
+      .date {
+        font-size: 16px;
+      }
+    }
+  }
+}

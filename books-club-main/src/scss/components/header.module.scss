@@ -1,0 +1,191 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+
+  .headerIcon {
+    height: 38px;
+    width: 72px;
+    margin: 0 0 0 10px;
+    flex-shrink: 0;
+  }
+
+  .title {
+    color: white;
+    margin: 0 0 0 8px;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .burgerMenu {
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+    order: 999;
+    position: relative;
+    right: 0;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+  }
+}
+
+// Очень маленькие экраны (до 374px)
+@media (max-width: 374px) {
+  header {
+    margin: 15px 0 0 0;
+    padding: 0 8px;
+
+    .headerIcon {
+      height: 32px;
+      width: 60px;
+      margin: 0 0 0 8px;
+    }
+
+    .title {
+      font-size: 16px;
+      margin: 0 0 0 6px;
+    }
+
+    .burgerMenu {
+      padding: 5px;
+      
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+// Большие мобильные (480px - 767px)
+@media (min-width: 480px) {
+  header {
+    margin: 25px 0 0 0;
+    padding: 0 15px;
+
+    .headerIcon {
+      height: 42px;
+      width: 79px;
+      margin: 0 0 0 15px;
+    }
+
+    .title {
+      font-size: 20px;
+      margin: 0 0 0 10px;
+    }
+
+    .burgerMenu {
+      margin: 0 0 0 auto;
+      padding: 8px;
+    }
+  }
+}
+
+// Планшеты портрет (768px - 1023px)
+@media (min-width: 768px) {
+  header {
+    margin: 30px 0 0 0;
+    padding: 0 30px;
+
+    .headerIcon {
+      height: 50px;
+      width: 94px;
+      margin: 0 0 0 25px;
+    }
+
+    .title {
+      font-size: 24px;
+      margin: 0 0 0 15px;
+    }
+
+    .burgerMenu {
+      margin: 0 0 0 auto;
+      padding: 10px;
+
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}
+
+// Планшеты landscape
+@media (min-width: 768px) and (orientation: landscape) {
+  header {
+    margin: 20px 0 0 0;
+  }
+}
+
+// Ноутбуки (1024px - 1439px)
+@media (min-width: 1024px) {
+  header {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+
+    .headerIcon {
+      height: 56px;
+      width: 105px;
+      margin: 0 0 0 40px;
+    }
+
+    .title {
+      font-size: 28px;
+      margin: 0 0 0 20px;
+    }
+
+    .burgerMenu {
+      margin: 0 0 0 auto;
+      padding: 12px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+// Десктопы (1440px+)
+@media (min-width: 1440px) {
+  header {
+    max-width: 1400px;
+    padding: 0 60px;
+  }
+}
+
+// Очень большие экраны (1920px+)
+@media (min-width: 1920px) {
+  header {
+    max-width: 1600px;
+    padding: 0 80px;
+  }
+}
