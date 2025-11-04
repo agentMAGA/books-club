@@ -1,0 +1,275 @@
+.search {
+    width: 100%;
+    max-width: 395px;
+    margin: 0 auto 30px;
+    display: flex;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.titleEvents {
+    margin: 60px 0 60px 0;
+    font-size: 34px;
+    font-family: "Cormorant Garamond";
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.3;
+    padding: 0 15px;
+}
+
+.visualBackdrop {
+    margin: 40px 15px 0 15px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 30px 30px 30px;
+    gap: 20px;
+    color: white;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .subtextOfTheEvent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        border: 1px solid #ffffff;
+        border-radius: 30px;
+        background-color: #141619;
+        margin: 20px 0 0 0;
+        padding: 15px;
+
+        .suvent {
+            padding: 0 0 0 20px;
+            flex: 1;
+            min-width: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+
+            .monstratStyls600 {
+                font-family: "Montserrat";
+                font-weight: 600;
+                font-style: normal;
+                word-wrap: break-word;
+            }
+
+            .monstratStyls400 {
+                font-family: "Montserrat";
+                font-weight: 400;
+                font-style: normal;
+                font-size: 19px;
+                word-wrap: break-word;
+                line-height: 1.4;
+            }
+
+            .monstratStyls300 {
+                font-family: "Montserrat";
+                font-weight: 300;
+                font-style: normal;
+                word-wrap: break-word;
+                line-height: 1.4;
+            }
+
+            .timeRangeDate {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 10px 0 0 0;
+                gap: 10px;
+                align-items: center;
+                width: 100%;
+
+                .usersIcon {
+                    border: 1px solid #ffffff;
+                    border-radius: 7px;
+                    margin: 18px 0 auto auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 5px 5px 0 0;
+                    min-width: 0;
+
+                    img {
+                        height: 24px;
+                        width: 45px;
+                        margin: 0 0 0 0;
+                    }
+
+                    .numberUsers {
+                        margin: -2px 0 0 0;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Очень маленькие экраны (до 374px)
+@media (max-width: 374px) {
+    .search {
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .titleEvents {
+        font-size: 28px;
+        margin: 50px 0 50px 0;
+        padding: 0 10px;
+    }
+
+    .visualBackdrop {
+        margin: 30px 10px 0 10px;
+        padding: 12px 15px 25px 15px;
+        border-radius: 20px;
+
+        .subtextOfTheEvent {
+            padding: 12px;
+            gap: 8px;
+
+            .suvent {
+                padding: 0 0 0 10px;
+
+                .monstratStyls400 {
+                    font-size: 17px;
+                }
+
+                .monstratStyls300 {
+                    font-size: 14px;
+                }
+
+                .timeRangeDate {
+                    .usersIcon {
+                        margin: 18px 0 auto auto;
+
+                        img {
+                            height: 20px;
+                            width: 38px;
+                        }
+
+                        .numberUsers {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Планшеты (768px и выше)
+@media (min-width: 768px) {
+    .search {
+        max-width: 500px;
+        margin-bottom: 40px;
+    }
+
+    .titleEvents {
+        font-size: 40px;
+        margin: 80px 0 80px 0;
+    }
+
+    .visualBackdrop {
+        margin: 50px 40px 0 40px;
+        padding: 20px 40px 40px 40px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .subtextOfTheEvent {
+            padding: 20px;
+            gap: 30px;
+
+            .suvent {
+                padding: 0 0 0 30px;
+
+                .monstratStyls400 {
+                    font-size: 22px;
+                }
+
+                .monstratStyls300 {
+                    font-size: 18px;
+                }
+
+                .timeRangeDate {
+                    .usersIcon {
+                        margin: 18px 0 auto 60px;
+
+                        img {
+                            height: 28px;
+                            width: 52px;
+                        }
+
+                        .numberUsers {
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ноутбуки и ПК (1024px и выше)
+@media (min-width: 1024px) {
+    .search {
+        max-width: 600px;
+        margin-bottom: 50px;
+    }
+
+    .titleEvents {
+        font-size: 48px;
+        margin: 100px 0 100px 0;
+    }
+
+    .visualBackdrop {
+        margin: 60px auto 0;
+        padding: 30px 60px 60px 60px;
+        max-width: 1100px;
+
+        .subtextOfTheEvent {
+            padding: 30px;
+            gap: 40px;
+
+            .suvent {
+                padding: 0 0 0 40px;
+
+                .monstratStyls400 {
+                    font-size: 24px;
+                }
+
+                .monstratStyls300 {
+                    font-size: 20px;
+                }
+
+                .timeRangeDate {
+                    .usersIcon {
+                        margin: 18px 0 auto 80px;
+
+                        img {
+                            height: 32px;
+                            width: 60px;
+                        }
+
+                        .numberUsers {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Большие экраны (1440px и выше)
+@media (min-width: 1440px) {
+    .visualBackdrop {
+        max-width: 1300px;
+    }
+}

@@ -1,0 +1,306 @@
+.visualBackdrop {
+    margin: 40px 15px 0 15px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px 30px 20px;
+    gap: 20px;
+    color: white;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
+    max-width: 100%;
+    overflow-x: hidden;
+
+    .titleEvents {
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        font-family: "Cormorant Garamond";
+        font-weight: 400;
+        font-style: normal, italic;
+
+    }
+
+    .subtextOfTheEvent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        border: 1px solid #ffffff;
+        border-radius: 30px;
+        background-color: #141619;
+        position: relative;
+        overflow: visible;
+        padding: 10px;
+        min-width: 0;
+
+        .monstratStyls600 {
+            font-family: "Montserrat";
+            font-weight: 600;
+            font-style: normal, italic;
+        }
+
+        .monstratStyls400 {
+            font-family: "Montserrat";
+            font-weight: 400;
+            font-style: normal, italic;
+        }
+
+        .monstratStyls300 {
+            font-family: "Montserrat";
+            font-weight: 300;
+            font-style: normal, italic;
+        }
+
+        .leftArrow {
+            background: rgba(255, 255, 255, 0.27);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+            display: flex;
+            padding: 0 5px 2px 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            min-height: 30px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            button {
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
+
+        .rightArrow {
+            background: rgba(255, 255, 255, 0.27);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+            display: flex;
+            padding: 0 4px 2px 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            min-height: 30px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            button {
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 20px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        }
+
+        .timeRangeDate {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0 0 0;
+            gap: 10px;
+            width: 100%;
+
+            .usersIcon {
+                border: 1px solid #ffffff;
+                border-radius: 7px;
+                margin: 18px 0 auto auto;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 5px 5px 0 0;
+                min-width: 0;
+
+                img {
+                    height: 24px;
+                    width: 45px;
+                    margin: 0 0 0 0;
+                }
+
+                .numberUsers {
+                    margin: -2px 0 0 0;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+// Очень маленькие экраны (до 374px)
+@media (max-width: 374px) {
+    .visualBackdrop {
+        margin: 30px 10px 0 10px;
+        padding: 12px 15px 25px 15px;
+        border-radius: 20px;
+
+        .titleEvents {
+            font-size: 20px;
+        }
+
+        .subtextOfTheEvent {
+            padding: 8px;
+            gap: 8px;
+
+            .leftArrow,
+            .rightArrow {
+                width: 28px;
+                height: 28px;
+                min-width: 28px;
+                min-height: 28px;
+
+                button {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+// Планшеты (768px и выше)
+@media (min-width: 768px) {
+    .visualBackdrop {
+        margin: 50px 40px 0 40px;
+        padding: 20px 40px 40px 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .titleEvents {
+            font-size: 28px;
+        }
+
+        .subtextOfTheEvent {
+            padding: 20px;
+            gap: 30px;
+
+            .leftArrow,
+            .rightArrow {
+                width: 40px;
+                height: 40px;
+                padding: 0 8px 4px 8px;
+
+                button {
+                    font-size: 24px;
+                }
+            }
+
+            .suvent {
+                padding: 0 0 0 30px;
+
+                .monstratStyls400 {
+                    font-size: 22px;
+                }
+
+                .monstratStyls300 {
+                    font-size: 18px;
+                }
+
+                .timeRangeDate {
+                    .usersIcon {
+                        margin: 18px 0 auto 60px;
+
+                        img {
+                            height: 28px;
+                            width: 52px;
+                        }
+
+                        .numberUsers {
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Ноутбуки и ПК (1024px и выше)
+@media (min-width: 1024px) {
+    .visualBackdrop {
+        margin: 60px auto 0;
+        padding: 30px 60px 60px 60px;
+        max-width: 1000px;
+
+        .titleEvents {
+            font-size: 32px;
+        }
+
+        .subtextOfTheEvent {
+            padding: 30px;
+            gap: 40px;
+
+            .leftArrow,
+            .rightArrow {
+                width: 50px;
+                height: 50px;
+                padding: 0 10px 6px 10px;
+
+                button {
+                    font-size: 28px;
+                }
+            }
+
+            .suvent {
+                padding: 0 0 0 40px;
+
+                .monstratStyls400 {
+                    font-size: 24px;
+                }
+
+                .monstratStyls300 {
+                    font-size: 20px;
+                }
+
+                .timeRangeDate {
+                    .usersIcon {
+                        margin: 18px 0 auto 80px;
+
+                        img {
+                            height: 32px;
+                            width: 60px;
+                        }
+
+                        .numberUsers {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Большие экраны (1440px и выше)
+@media (min-width: 1440px) {
+    .visualBackdrop {
+        max-width: 1200px;
+    }
+}
