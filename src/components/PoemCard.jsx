@@ -1,39 +1,42 @@
 import styles from "../scss/components/poemCard.module.scss";
+import { useSliderPoem } from "../API/UseSliderLogic";
 
-const poem = `В бескрайних страницах Вселенной
-Сквозь звёздный туман и тишину,
-Я открываю книгу, как окно —
-И буквы, будто искры, в вышину
-Взлетают, загораясь ярким сном.
+const PoemCard = () => {
 
-В словах — галактик тайный круговороть,
-В абзацах — свет далеких маяков.
-И каждый том — как новая планета,
-Где оживают вечность и любовь.
+  const { slaiderPoem, neumbersPoem, setPoemPlus, setPoemMinus } = useSliderPoem();
+  const currentSlide = slaiderPoem.find(item => item.id === neumbersPoem);
 
-Читать — значит странствовать без края,
-Скользить сквозь время, звёзды и года.
-В библиотеке мира, открывая
-Бесконечность — снова и всегда.
-`;
+  return (
+    <div className={styles.visualBackdrop}>
+      <nav className={styles.leftArrow} onClick={setPoemMinus}>
+        <button aria-label="Предыдущий">‹</button>
+      </nav>
+      <div>
+        <div className={styles.card}>
+          <div className={styles.cardHeader}>
+            <span className={styles.cardType + " " + styles.monstratStyls300}>{currentSlide.thips}</span>
+            <span className={styles.cardAuthor + " " + styles.monstratStyls300}>{currentSlide.autor}</span>
+          </div>
+          <div className={styles.cardBody}>
+            {/* Первая строка жирная, остальное обычным pre */}
+            <div className={styles.titleLine}>{currentSlide.title}</div>
+            <pre className={styles.cardContent}>{currentSlide.text.replace(/^.*\n/, "")}</pre>
+          </div>
+          <div className={styles.cardFooter}>
+            <span className={styles.date}>{currentSlide.dateStart}</span>
+          </div>
+        </div>
 
-const PoemCard = () => (
-  <div className={styles.card}>
-    <div className={styles.cardHeader}>
-      <span className={styles.cardType + " " + styles.monstratStyls300}>Стих</span>
-      <span className={styles.cardAuthor + " " + styles.monstratStyls300}>Иванов И.</span>
+      </div>
+
+      <nav className={styles.rightArrow} onClick={setPoemPlus}>
+        <button aria-label="Следующий">›</button>
+      </nav>
+
     </div>
 
-    <div className={styles.cardBody}>
-      {/* Первая строка жирная, остальное обычным pre */}
-      <div className={styles.titleLine}>В бескрайних страницах Вселенной</div>
-      <pre className={styles.cardContent}>{poem.replace(/^.*\n/, "")}</pre>
-    </div>
 
-    <div className={styles.cardFooter}>
-      <span className={styles.date}>10.06.2025</span>
-    </div>
-  </div>
-);
+  )
+};
 
 export default PoemCard;

@@ -9,6 +9,7 @@
     gap: 20px;
     color: white;
     box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
+    transition: transform 0.5s ease-in-out;
 
     .titleEvents {
         margin: 0 0 10px 0;
@@ -46,6 +47,19 @@
             font-weight: 300;
             font-style: normal, italic;
         }
+        .positionSlaiderFiks {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;           // ← Максимум 4 строки, это не ошибка, это многоточие в конце строк, чтобы знали что это обрезано
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;                // ← важно: чтобы высота строки была предсказуемой
+            max-height: calc(1.4em * 4);     // ← резервная защита для браузеров без поддержки -webkit-line-clamp
+
+            /* Фиксируем высоту — НИЧЕГО не сожмётся */
+            line-height: 1.4; // ← должно совпадать с .monstratStyls300
+            min-height: calc(1.4em * 4); // ← КЛЮЧЕВОЕ: минимальная высота = 4 строки
+        }
 
         .leftArrow {
             background: rgba(255, 255, 255, 0.27);
@@ -57,6 +71,7 @@
             border: 2px solid #ffffff;
             display: flex;
             padding: 0 5px 2px 5px;
+             transition: background 0.3s;
 
 
             button {

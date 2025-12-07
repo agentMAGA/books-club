@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import {NavLink} from "react-router-dom"
+import {NavLink , useNavigate } from "react-router-dom"
 import styles from "../scss/pages/singUp.module.scss";
 
 export default function SingUp() {
   const [step, setStep] = useState(0); // 0..4
+  const navigate = useNavigate(); 
 
   const titles = [
     "Основная информация",
@@ -20,9 +21,9 @@ export default function SingUp() {
       {/* Верхняя панель с системной кнопкой назад */}
       <header className={styles.header}>
         <button type="button" className={styles.backBtn} onClick={back} aria-label="Назад">
-          <NavLink to="/login">
-          <img src="/img/back.svg" alt="" />
-          </NavLink>
+          {/* <NavLink to="/"> */}
+          <img src="/img/back.svg" alt="" onClick={()=>navigate(-1)} />
+          {/* </NavLink> */}
         </button>
       </header>
 
