@@ -1,11 +1,12 @@
-import React from 'react'
 import styles from "../scss/pages/home.module.scss";
 import Header from "../components/Header";
 import SlayderSessions from '../components/SlayderSessions';
 import Footer from '../components/Footer';
 import PoemCard from '../components/PoemCard';
+import { useNavigate } from "react-router-dom"
 
 function Home() {
+const navigate = useNavigate();
   return (
     <>
       <Header />
@@ -13,7 +14,7 @@ function Home() {
         <section className={styles.innerSpacing}>
           <h1 className={styles.titleStyls}>Books Club</h1>
           <p className={styles.subtextTitle + " " +styles.tecstUppercase}>Космос идей. Вселенная книг.</p>
-          <button className={styles.tecstUppercase + " " + styles.buttonFonts}>Присоединиться</button>
+          <button className={styles.tecstUppercase + " " + styles.buttonFonts}  onClick={()=>navigate("/singup")}>Присоединиться</button>
         </section>
         <section className={styles.innerSpacing}>
           <h2 className={styles.titleCenter}>О нас </h2>
@@ -30,6 +31,7 @@ function Home() {
           </p>
           <p className={styles.textRegulirovca}>Мы оставляем границы позади, чтобы достичь своей Arête.</p>
         </section>
+
         <SlayderSessions />
 
         <div className={styles.cards}>
@@ -39,21 +41,8 @@ function Home() {
             <img src="img/zvezda.svg" alt="zvezda" />
           </div>
 
-          <div className={styles.visualBackdrop}>
-
-            <nav className={styles.leftArrow}>
-              <button aria-label="Предыдущий">‹</button>
-            </nav>
-
-            <div className={styles.poemCardWrapper}>
               <PoemCard />
-            </div>
 
-            <nav className={styles.rightArrow}>
-              <button aria-label="Следующий">›</button>
-            </nav>
-
-          </div>
         </div>
 
       </main>

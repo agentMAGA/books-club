@@ -1,8 +1,8 @@
-import React from 'react'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Search from '../components/Search';
 import styles from "../scss/pages/happenings.module.scss";
+import { slaiderTime } from '../data/slaiderTime';
 
 const Happenings = function () {
     return (
@@ -14,69 +14,28 @@ const Happenings = function () {
             </div>
             <div className={styles.visualBackdrop}>
 
-                <div className={styles.subtextOfTheEvent}>
-                    <div className={styles.suvent}>
-                        <article>
-                            <p><strong className={styles.monstratStyls400}>Собрание книжного клуба</strong></p>
-                            <p className={styles.monstratStyls300}>
-                                Morem ipsum dolor sit amet,
-                                consectetur adipiscing elit.
-                                Etiam eu turpis molestie, dictum est a, mattis tellus.
-                                Sed dignissim, metus nec...
-                            </p>
-                        </article>
-                        <article className={styles.timeRangeDate}>
-                            <p className={styles.monstratStyls300}>24.08.2025 13:00 -<br />24.08.2025 14:00</p>
-                            <div className={styles.usersIcon}>
-                                <img src="img\usersIcons.svg" alt="usersIcons" />
-                                <span className={styles.numberUsers}>14</span>
-                            </div>
-                        </article>
+                {slaiderTime.map((item) => (
+                    <div className={styles.subtextOfTheEvent} key={item.id}>
+                        <div className={styles.suvent}>
+                            <article>
+                                <p><strong className={styles.monstratStyls400}>{item.title}</strong></p>
+                                <p className={styles.monstratStyls300}>
+                                    {item.text}
+                                </p>
+                            </article>
+                            <article className={styles.timeRangeDate}>
+                                <p className={styles.monstratStyls300}>
+                                    {item.dateStart} {item.timeStart} -<br />
+                                    {item.dateFinish} {item.timeFinish}
+                                </p>
+                                <div className={styles.usersIcon}>
+                                    <img src="img\usersIcons.svg" alt="usersIcons" />
+                                    <span className={styles.numberUsers}>{item.users}</span>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </div>
-
-                <div className={styles.subtextOfTheEvent}>
-                    <div className={styles.suvent}>
-                        <article>
-                            <p><strong className={styles.monstratStyls400}>Собрание книжного клуба</strong></p>
-                            <p className={styles.monstratStyls300}>
-                                Morem ipsum dolor sit amet,
-                                consectetur adipiscing elit.
-                                Etiam eu turpis molestie, dictum est a, mattis tellus.
-                                Sed dignissim, metus nec...
-                            </p>
-                        </article>
-                        <article className={styles.timeRangeDate}>
-                            <p className={styles.monstratStyls300}>24.08.2025 13:00 -<br />24.08.2025 14:00</p>
-                            <div className={styles.usersIcon}>
-                                <img src="img\usersIcons.svg" alt="usersIcons" />
-                                <span className={styles.numberUsers}>14</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div className={styles.subtextOfTheEvent}>
-                    <div className={styles.suvent}>
-                        <article>
-                            <p><strong className={styles.monstratStyls400}>Собрание книжного клуба</strong></p>
-                            <p className={styles.monstratStyls300}>
-                                Morem ipsum dolor sit amet,
-                                consectetur adipiscing elit.
-                                Etiam eu turpis molestie, dictum est a, mattis tellus.
-                                Sed dignissim, metus nec...
-                            </p>
-                        </article>
-                        <article className={styles.timeRangeDate}>
-                            <p className={styles.monstratStyls300}>24.08.2025 13:00 -<br />24.08.2025 14:00</p>
-                            <div className={styles.usersIcon}>
-                                <img src="img\usersIcons.svg" alt="usersIcons" />
-                                <span className={styles.numberUsers}>14</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
+                ))}
             </div>
             <Footer />
         </>

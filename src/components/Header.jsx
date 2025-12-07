@@ -21,7 +21,7 @@ const Header = () => {
         <NavLink to="/">
         <img className={styles.headerIcon} src="img/logo.svg" alt="icon" />
         </NavLink>
-        <h2 className={styles.title}>Arête</h2>
+        <img src="img/logo-text.svg" alt="logo-text" />
         <img
           className={styles.burgerMenu}
           src="img/burger-menu.svg"
