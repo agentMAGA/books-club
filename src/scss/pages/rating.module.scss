@@ -1,0 +1,79 @@
+.title {
+    margin: 50px 0 80px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+  height: 65px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 4px 16px;
+  color: #fff;
+  box-shadow: 0 0 10px 5px rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.cardPosition {
+  font-size: 36px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.avatarCircle {
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  height: 45px;
+  width: 45px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstPosition {
+  box-shadow: 0 0 10px 5px #FFD580;
+  
+  .avatarCircle {
+    background-color: #FFD580;
+  }
+}
+
+.twoPosition {
+  box-shadow: 0 0 10px 5px #B1B2B2;
+  
+  .avatarCircle {
+    background-color: #B1B2B2;
+  }
+}
+
+.threePosition {
+  box-shadow: 0 0 10px 5px #CD7F32;
+  
+  .avatarCircle {
+    background-color: #CD7F32;
+  }
+}

@@ -51,7 +51,7 @@ const BurgerMenu = ({ closeMenu }) => (
         Мероприятия
       </NavLink>
 
-      {/* <NavLink
+      <NavLink
         to="/rating"
         className={({ isActive }) =>
           isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
@@ -59,7 +59,7 @@ const BurgerMenu = ({ closeMenu }) => (
         onClick={closeMenu}
       >
         Рейтинг
-      </NavLink> */}
+      </NavLink>
 
       <NavLink
         to="/settings"
@@ -101,6 +101,16 @@ const BurgerMenu = ({ closeMenu }) => (
         onClick={closeMenu}
       >
         Singup
+      </NavLink>
+
+      <NavLink
+        to="/admin"
+        className={({ isActive }) =>
+          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+        }
+        onClick={closeMenu}
+      >
+        admin
       </NavLink>
     </nav>
   </aside>

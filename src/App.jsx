@@ -6,6 +6,8 @@ import LoginPage from "./pages/LoginPage";
 import Home from "./pages/Home";
 import SingUp from "./pages/SingUp"
 import Happenings from "./pages/Happenings";
+import Rating from "./pages/Rating";
+import AdminPanel from "./pages/AdminPanel"
 
 function App() {
   return (
@@ -14,9 +16,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/newspaper" element={<Newspaper />} />
         <Route path="/happenings" element={<Happenings />} />
+        <Route path="/rating" element={<Rating/>} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/singup" element={<SingUp />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </>
   );
