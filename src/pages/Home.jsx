@@ -32,7 +32,7 @@ const navigate = useNavigate();
           <p className={styles.textRegulirovca}>Мы оставляем границы позади, чтобы достичь своей Arête.</p>
         </section>
 
-        <SlayderSessions />
+          <SlayderSessions />
 
         <div className={styles.cards}>
           <div className={styles.h3title}>

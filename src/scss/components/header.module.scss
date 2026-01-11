@@ -1,17 +1,87 @@
 header {
   display: flex;
-  margin: 25px 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+
 
   .headerIcon {
+    display: flex;
     height: 42px;
     width: 79px;
-    margin: 0 0 0 15px;
+    margin: 0 75px 0 15px;
+
   }
 
   .burgerMenu {
     margin: 0 15px 0 0;
     margin-left: auto;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+
+    @media (min-width: 768px) {
+      display: none; // ← скрываем на десктопах
+    }
   }
 
+  .desktopMenu {
+    display: none; // ← по умолчанию скрыто
+
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 24px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+  }
+
+  // Кнопка "ВОЙТИ" — показана на экранах >= 768px
+  .loginButton {
+    display: none; // ← по умолчанию скрыта
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 
 }

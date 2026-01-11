@@ -13,15 +13,15 @@ const Newspaper = () => {
 
       <div className={styles.container}>
         <h1 className={styles.title}>Газета</h1>
-        <div className={styles.search}>
+
           <Search />
-        </div>
+
         <div className={styles.cards}>
           {slaiderPoem.map((poems) =>
             <div className={stylesPoem.card}>
               <div className={stylesPoem.cardHeader}>
-                <span className={stylesPoem.cardType + " " + stylesPoem.monstratStyls300}>{poems.thips}</span>
-                <span className={stylesPoem.cardAuthor + " " + stylesPoem.monstratStyls300}>{poems.autor}</span>
+                <span className={stylesPoem.cardType}>{poems.thips}</span>
+                <span className={stylesPoem.cardAuthor}>{poems.autor}</span>
               </div>
           
               <div className={stylesPoem.cardBody}>

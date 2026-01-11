@@ -24,10 +24,33 @@ $btn-text: #111111;
 }
 
 /* страховки от переполнения */
-html { box-sizing: border-box; -webkit-text-size-adjust: 100%; overscroll-behavior: contain; }
-*, *::before, *::after { box-sizing: inherit; }
-html, body { width: 100%; max-width: 100%; overflow-x: hidden; background: $bg; }
-img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+html {
+  box-sizing: border-box;
+  overscroll-behavior: contain;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: $bg;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 .container {
   min-height: 100dvh;
@@ -55,11 +78,20 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
     align-items: center;
 
     .backBtn {
-      background: transparent; border: 0; padding: 0;
-      width: 32px; height: 32px;
-      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       -webkit-tap-highlight-color: transparent;
-      img { width: 20px; height: 20px; }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -68,15 +100,18 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: calc(var(--h-btn) * 2 + 24px); /* запас под нижние кнопки */
+    padding-bottom: calc(var(--h-btn) * 2 + 24px);
+    /* запас под нижние кнопки */
   }
 
   .logo {
     margin: var(--space-1) 0 var(--space-2);
     text-align: center;
 
-    img { width: 120px; margin: 0 auto var(--space-1); }
+    img {
+      width: 120px;
+      margin: 0 auto var(--space-1);
+    }
 
     .title {
       font-size: var(--font-xl);
@@ -140,7 +175,7 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
 
         &.active {
           background: $text;
-          box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+          box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
         }
       }
     }
@@ -158,7 +193,9 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
       width: 100%;
       max-width: 100%;
 
-      &.isActive { display: flex; }
+      &.isActive {
+        display: flex;
+      }
 
       .input,
       .textarea {
@@ -167,37 +204,53 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
         min-width: 0;
         border-radius: var(--radius-s);
         border: 1px solid $stroke;
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
         color: $text;
         font-size: var(--font-base);
         -webkit-appearance: none;
         appearance: none;
 
-        &::placeholder { color: #9e9e9e; }
-        &:focus { outline: none; border-color: $stroke-focus; }
+        &::placeholder {
+          color: #9e9e9e;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $stroke-focus;
+        }
       }
 
-      .input { height: var(--h-input); padding: 0 var(--space-3); }
-      .textarea { min-height: 96px; padding: 12px 14px; resize: vertical; }
+      .input {
+        height: var(--h-input);
+        padding: 0 var(--space-3);
+      }
+
+      .textarea {
+        min-height: 96px;
+        padding: 12px 14px;
+        resize: vertical;
+      }
     }
   }
 
   /* Нижние кнопки — всегда у низа и вертикально */
   .footerActions {
     position: sticky;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 10;
 
     display: flex;
-    flex-direction: column; /* ключ — всегда столбиком */
+    flex-direction: column;
+    /* ключ — всегда столбиком */
     gap: 12px;
 
     background: linear-gradient(180deg,
-               rgba(20,22,25,0) 0%,
-               rgba(20,22,25,0.85) 28%,
-               #141619 60%);
-    padding: 12px clamp(12px, 4vw, 16px)
-             calc(env(safe-area-inset-bottom) + 12px);
+        rgba(20, 22, 25, 0) 0%,
+        rgba(20, 22, 25, 0.85) 28%,
+        #141619 60%);
+    padding: 12px clamp(12px, 4vw, 16px) calc(env(safe-area-inset-bottom) + 12px);
 
     .secondaryButton,
     .submitButton {
@@ -209,11 +262,19 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
       font-size: 18px;
       font-weight: 600;
       -webkit-tap-highlight-color: transparent;
-      flex: 0 0 auto; /* фиксированная высота, не сжимать */
+      flex: 0 0 auto;
+      /* фиксированная высота, не сжимать */
     }
 
-    .submitButton { background: $btn-primary; color: $btn-text; }
-    .secondaryButton { background: $btn-secondary; color: $btn-text; }
+    .submitButton {
+      background: $btn-primary;
+      color: $btn-text;
+    }
+
+    .secondaryButton {
+      background: $btn-secondary;
+      color: $btn-text;
+    }
 
     /* На больших экранах тоже оставляем вертикально — убираем все media-условия,
        чтобы они не становились в ряд никогда */
@@ -228,11 +289,24 @@ img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
 
 /* Тюнинг для узких телефонов */
 @media (max-width: 340px) {
-  :root { --font-xl: 32px; --font-lg: 20px; }
+  :root {
+    --font-xl: 32px;
+    --font-lg: 20px;
+  }
+
   .container {
-    .logo img { width: 108px; }
-    .steps .input { height: 48px; }
+    .logo img {
+      width: 108px;
+    }
+
+    .steps .input {
+      height: 48px;
+    }
+
     .footerActions .secondaryButton,
-    .footerActions .submitButton { height: 52px; font-size: 16px; }
+    .footerActions .submitButton {
+      height: 52px;
+      font-size: 16px;
+    }
   }
 }
