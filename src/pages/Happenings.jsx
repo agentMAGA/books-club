@@ -6,12 +6,12 @@ import { slaiderTime } from '../data/slaiderTime';
 
 const Happenings = function () {
     return (
-        <>
+        <div className={styles.container}>
             <Header />
             <h1 className={styles.titleEvents}>Мероприятия</h1>
-            <div className={styles.search}>
-                <Search />
-            </div>
+
+            <Search />
+
             <div className={styles.visualBackdrop}>
 
                 {slaiderTime.map((item) => (
@@ -38,7 +38,7 @@ const Happenings = function () {
                 ))}
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 
