@@ -8,9 +8,24 @@
   grid-template-rows: auto 1fr auto;
   /* дата всегда внизу */
   row-gap: 8px;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+  // max-width: 100%;
+  
+  @media (min-width: 768px) {
+    width: 740px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 960px;
+  }
+
+  @media (min-width: 1280px) {
+    // width: 1200px;
+  }
+
+  @media (min-width: 1440px) {
+    // width: 1400px;
+  }
+
 
   .cardHeader {
     display: flex;
@@ -23,21 +38,23 @@
       opacity: 0.8;
       font-style: italic;
       white-space: nowrap;
+
+      @media (min-width: 768px) {
+        font-size: 18px;  
+      }
     }
   }
 
   .cardBody {
-    @media (min-width: 958px) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-  }
     .titleLine {
       font-weight: 700;
       font-size: clamp(20px, 3.4vw, 40px);
       line-height: 1.35;
       margin-bottom: 10px;
+
+      @media (min-width: 768px) {
+        font-size: 24px;  
+      }
     }
 
     .cardContent {
@@ -46,6 +63,10 @@
       white-space: pre-wrap;
       color: rgba(255, 255, 255, 0.92);
       font-style: italic;
+
+      @media (min-width: 768px) {
+        font-size: 20px;  
+      }
     }
   }
 
@@ -64,27 +85,51 @@
 .visualBackdrop {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   min-height: 200px;
   font-style: italic;
 
+  .leftArrow, .rightArrow {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .leftArrow:hover, .rightArrow:hover {
+    background: rgba(255, 255, 255, 0.45);
+    border-color: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  }
+
+  .leftArrow:hover {
+    transform: translateX(1em) scale(1.1);
+  }
+
+  .rightArrow:hover {
+    transform: translateX(-1em) scale(1.1);
+  }
+
   .leftArrow {
     background: rgba(255, 255, 255, 0.27);
     -webkit-backdrop-filter: blur(8px);
-    /* ← для Safari и iOS */
     backdrop-filter: blur(8px);
-    margin: 0 0 0 -360px;
     border-radius: 5px;
     border: 2px solid #ffffff;
     padding: 0 5px 2px 5px;
     height: 30px;
     width: 20px;
-    position: absolute;
+    transform: translateX(1em);
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-
+    @media (min-width: 768px) {
+      width: 30px;
+      height: 60px;
+    }
 
     button {
       background: transparent;
@@ -96,25 +141,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
   }
-
 
   .rightArrow {
     background: rgba(255, 255, 255, 0.27);
     -webkit-backdrop-filter: blur(8px);
-    /* ← для Safari и iOS */
     backdrop-filter: blur(8px);
-    margin: 0 -360px 0 0;
     border-radius: 5px;
     border: 2px solid #ffffff;
     display: flex;
     padding: 0 4px 2px 4px;
     height: 30px;
     width: 20px;
-    position: absolute;
     z-index: 2;
+    transform: translateX(-1em);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    @media (min-width: 768px) {
+      width: 30px;
+      height: 60px;
+    }
 
     button {
       background: transparent;
@@ -126,7 +177,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
   }
-
 }

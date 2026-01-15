@@ -10,7 +10,14 @@
     color: white;
     box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.5s ease-in-out;
-    position: relative; // важно для позиционирования стрелок!
+
+   @media (min-width: 768px) {
+    width: 740px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 960px;
+  }
 
     .titleEvents {
         margin: 0 0 10px 0;
@@ -98,5 +105,95 @@
             font-weight: 300;
             font-style: normal, italic;
         }
+        .positionSlaiderFiks {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;           // ← Максимум 4 строки, это не ошибка, это многоточие в конце строк, чтобы знали что это обрезано
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;                // ← важно: чтобы высота строки была предсказуемой
+            max-height: calc(1.4em * 4);     // ← резервная защита для браузеров без поддержки -webkit-line-clamp
+
+            /* Фиксируем высоту — НИЧЕГО не сожмётся */
+            line-height: 1.4; // ← должно совпадать с .monstratStyls300
+            min-height: calc(1.4em * 4); // ← КЛЮЧЕВОЕ: минимальная высота = 4 строки
+        }
+
+        .leftArrow {
+            background: rgba(255, 255, 255, 0.27);
+            -webkit-backdrop-filter: blur(8px);
+            /* ← для Safari и iOS */
+            backdrop-filter: blur(8px);
+            margin: 0 0 0 -18px;
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+            display: flex;
+            padding: 0 5px 2px 5px;
+             transition: background 0.3s;
+
+
+            button {
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .rightArrow {
+            background: rgba(255, 255, 255, 0.27);
+            -webkit-backdrop-filter: blur(8px);
+            /* ← для Safari и iOS */
+            backdrop-filter: blur(8px);
+            margin: 0 -18px 0 0;
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 4px 2px 4px;
+
+            button {
+                background: transparent;
+                border: none;
+                color: white;
+                font-size: 20px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .timeRangeDate {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -20px 0 0 0;
+
+            .usersIcon {
+                border: 1px solid #ffffff;
+                border-radius: 7px;
+                margin: 18px 0 auto 44px;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 5px 5px 0 0;
+
+                img {
+                    height: 24px;
+                    width: 45px;
+                    margin: 0 0 0 0;
+                }
+
+                .numberUsers {
+                    margin: -2px 0 0 0;
+                    font-size: 20px;
+                }
+
+            }
+        }
+
     }
 }

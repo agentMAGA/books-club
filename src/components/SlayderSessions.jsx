@@ -9,46 +9,27 @@ const SlayderSessions = () => {
     <div className={styles.visualBackdrop}>
       <h4 className={styles.titleEvents}>Мероприятия</h4>
 
-      <Splide
-        options={{
-          type: 'loop',
-          perPage: 2,
-          perMove: 1,
-          gap: '1.5rem',
-          arrows: true,
-          pagination: false,
-          drag: true,
-          breakpoints: {
-            768: {
-              perPage: 1,
-              gap: '1rem',
-            },
-          },
-        }}
-        // Добавим класс, чтобы стилизовать обёртку Splide
-        className={styles.splideWrapper}
-      >
-        {slaiderTime.map((item) => (
-          <SplideSlide key={item.id}>
-            <div className={styles.subtextOfTheEvent}>
-              <article>
-                <p>
-                  <strong className={styles.monstratStyls400}>
-                    {item.title}
-                  </strong>
-                </p>
-                <p className={`${styles.monstratStyls300} ${styles.positionSlaiderFiks}`}>
-                  {item.text}
-                </p>
-              </article>
-              <article className={styles.timeRangeDate}>
-                <p className={styles.monstratStyls300}>
-                  {item.dateStart} {item.timeStart} -<br />
-                  {item.dateFinish} {item.timeFinish}
-                </p>
-                <div className={styles.usersIcon}>
-                  <img src="img/usersIcons.svg" alt="Участники" />
-                  <span className={styles.numberUsers}>{item.users}</span>
+            <div key={currentSlide.id} className={styles.subtextOfTheEvent}>
+
+                <nav className={styles.leftArrow}>
+                    <button onClick={() => setEventsMinus()} aria-label="Предыдущий">‹</button>
+                </nav>
+
+                <div style={{flex:1}}>
+                    <article>
+                        <p><strong className={styles.monstratStyls400}>{currentSlide.title}</strong></p>
+                        <p className={styles.monstratStyls300 + " " + styles.positionSlaiderFiks}>
+                            {currentSlide.text}
+                        </p>
+                    </article>
+                    <article className={styles.timeRangeDate}>
+                        <p className={styles.monstratStyls300}>{currentSlide.dateStart} {currentSlide.timeStart} -<br />
+                            {currentSlide.dateFinish} {currentSlide.timeFinish}</p>
+                        <div className={styles.usersIcon}>
+                            <img src="img\usersIcons.svg" alt="usersIcons" />
+                            <span className={styles.numberUsers}>{currentSlide.users}</span>
+                        </div>
+                    </article>
                 </div>
               </article>
             </div>

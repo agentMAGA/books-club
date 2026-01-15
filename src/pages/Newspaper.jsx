@@ -16,7 +16,7 @@ const Newspaper = () => {
 
           <Search />
 
-        <div className={styles.cards}>
+        <div className={styles.cards} style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
           {slaiderPoem.map((poems) =>
             <div className={stylesPoem.card}>
               <div className={stylesPoem.cardHeader}>
