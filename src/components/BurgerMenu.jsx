@@ -1,119 +1,149 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 import styles from "../scss/components/burgerMenu.module.scss";
 
-const BurgerMenu = ({ closeMenu }) => (
-  <aside className={styles.burgerMenu} role="dialog" aria-modal="true">
-    <button
-      className={styles.closeButton}
-      onClick={closeMenu}
-      aria-label="Закрыть меню"
-    >
-      <img src="img/closeMenu.svg" alt="" />
-    </button>
+const BurgerMenu = ({ closeMenu }) => {
+  const { user, isAuthenticated, logout } = useAuthStore();
+  const navigate = useNavigate();
 
-    <div className={styles.profile}>
-      <div className={styles.avatar}>
-        <img className={styles.avatarImg} src="img/avatar.jpg" alt="avatar" />
-      </div>
-      <div className={styles.name}>Иван Иванов</div>
-    </div>
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+    navigate('/login');
+  };
 
-    <nav className={styles.menu}>
-      <NavLink
-        to="/"
-        end
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
+  return (
+    <aside className={styles.burgerMenu} role="dialog" aria-modal="true">
+      <button
+        className={styles.closeButton}
         onClick={closeMenu}
+        aria-label="Закрыть меню"
       >
-        Главная
-      </NavLink>
+        <img src="img/closeMenu.svg" alt="" />
+      </button>
 
-      <NavLink
-        to="/newspaper"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Газета
-      </NavLink>
+      {/* ✅ ДИНАМИЧЕСКИЙ ПРОФИЛЬ */}
+      {isAuthenticated ? (
+        <div className={styles.profile}>
+          <div className={styles.avatar}>
+            <img 
+              className={styles.avatarImg} 
+              src="img/avatar.jpg" 
+              alt={`${user?.firstName || ''} ${user?.lastName || ''}`} 
+            />
+          </div>
+          <div className={styles.name}>
+            {user?.firstName || user?.username || 'Пользователь'}
+          </div>
+        </div>
+      ) : (
+        <div className={styles.profile}>
+          <div className={styles.name}>Гость</div>
+        </div>
+      )}
 
-      <NavLink
-        to="/happenings"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Мероприятия
-      </NavLink>
+      <nav className={styles.menu}>
+        {/* ✅ ОСНОВНЫЕ ССЫЛКИ — всегда видны */}
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+          }
+          onClick={closeMenu}
+        >
+          Главная
+        </NavLink>
 
-      <NavLink
-        to="/rating"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Рейтинг
-      </NavLink>
+        <NavLink
+          to="/newspaper"
+          className={({ isActive }) =>
+            isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+          }
+          onClick={closeMenu}
+        >
+          Газета
+        </NavLink>
 
-      <NavLink
-        to="/settings"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Настройки
-      </NavLink>
+        <NavLink
+          to="/happenings"
+          className={({ isActive }) =>
+            isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+          }
+          onClick={closeMenu}
+        >
+          Мероприятия
+        </NavLink>
 
-      {/* <NavLink
-        to="/singup"
-        className={({ isActive }) =>
-          isActive
-            ? `${styles.menuItem} ${styles.exit} ${styles.active}`
-            : `${styles.menuItem} ${styles.exit}`
-        }
-        onClick={closeMenu}
-      >
-        Выйти <span className={styles.exitIcon}>⎋</span>
-      </NavLink> */}
+        <NavLink
+          to="/rating"
+          className={({ isActive }) =>
+            isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+          }
+          onClick={closeMenu}
+        >
+          Рейтинг
+        </NavLink>
 
-      <NavLink
-        to="/login"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Login
-      </NavLink>
+        {/* ✅ КОНДИЦИОННАЯ НАВИГАЦИЯ */}
+        {isAuthenticated ? (
+          <>
+            <NavLink
+              to="/settings"
+              className={({ isActive }) =>
+                isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+              }
+              onClick={closeMenu}
+            >
+              Настройки
+            </NavLink>
 
-      <NavLink
-        to="/singup"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        Singup
-      </NavLink>
+            <button
+              className={`${styles.menuItem} ${styles.logout}`}
+              onClick={handleLogout}
+            >
+              Выйти
+            </button>
+          </>
+        ) : (
+          <>
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+              }
+              onClick={closeMenu}
+            >
+              Войти
+            </NavLink>
 
-      <NavLink
-        to="/admin"
-        className={({ isActive }) =>
-          isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
-        }
-        onClick={closeMenu}
-      >
-        admin
-      </NavLink>
-    </nav>
-  </aside>
-);
+            <NavLink
+              to="/singup"
+              className={({ isActive }) =>
+                isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+              }
+              onClick={closeMenu}
+            >
+              Регистрация
+            </NavLink>
+          </>
+        )}
+
+        {/* ✅ АДМИНКА — только для авторизованных */}
+        {isAuthenticated && (
+          <NavLink
+            to="/admin"
+            className={({ isActive }) =>
+              isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+            }
+            onClick={closeMenu}
+          >
+            Админка
+          </NavLink>
+        )}
+      </nav>
+    </aside>
+  );
+};
 
 export default BurgerMenu;
