@@ -1,7 +1,7 @@
-body {
-  margin: 0 0 auto 0;
-  color: #ffffff;
-  background-color: #141619 ;
+.app {
+    margin: 0 0 auto 0;
+    color: #ffffff;
+    background-color: #141619;
 
     background-image: radial-gradient(circle at 20% 30%,
             rgba(255, 255, 255, 0.26),
@@ -18,7 +18,13 @@ body {
     // font-family: "Montserrat";
 }
 
-main{
+.appColor {
+    margin: 0 0 auto 0;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+main {
     display: flex;
     align-items: center;
     justify-content: center;

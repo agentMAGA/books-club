@@ -6,6 +6,37 @@ header {
   position: sticky;
   top: 0;
 
+  .bleackOff {
+    cursor: pointer;
+    height: 34px;
+    width: 74px;
+    background: #000000;
+    border-radius: 30px;
+
+    .polzunoc {
+      height: 30px;
+      width: 30px;
+      margin: 2px 2px 2px 40px;
+      background: #ffffff;
+      border-radius: 50%
+    }
+  }
+
+  .bleackOn {
+    cursor: pointer;
+    height: 34px;
+    width: 74px;
+    background: #ffffff;
+    border-radius: 30px;
+
+    .polzunoc {
+      height: 30px;
+      width: 30px;
+      margin: 2px;
+      background: #141619;
+      border-radius: 50%
+    }
+  }
 
   .headerIcon {
     display: flex;
@@ -20,5 +51,78 @@ header {
     margin-left: auto;
   }
 
+  .desktopMenuColor {
+    a {
+      color: rgb(0, 0, 0) !important;
+    }
+
+    &:hover {
+      background-color: rgba(230, 218, 218, 0.1) !important;
+    }
+
+    &.active {
+      border-bottom: 2px solid black !important;
+    }
+  }
+
+  .desktopMenu {
+    display: none; // ← по умолчанию скрыто
+
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 24px;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+  }
+
+  // Кнопка "ВОЙТИ" — показана на экранах >= 768px
+  .loginButtonColor {
+    border: 1px solid rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0) !important;
+
+    &:hover {
+      background-color: rgba(230, 218, 218, 0.1) !important;
+    }
+  }
+
+  .loginButton {
+    display: none; // ← по умолчанию скрыта
+
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 
 }
