@@ -93,6 +93,7 @@
       left: 50%;
       transform: translateX(-50%);
       max-width: none;
+      
 
       &.active {
         background-color: white;
@@ -128,6 +129,40 @@
       }
 
       &:last-child::after {
+        display: none;
+      }
+    }
+
+.logout {
+  all: inherit;                    // Наследует ВСЕ стили .menuItem
+  appearance: none !important;     // Убирает дефолтный вид кнопки
+  position: relative;
+  font-size: 26px;
+  font-weight: 400;
+  padding: 14px 0;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+  }
+}
+
+
+    // ✅ Гость без аватара
+    .profile:has(.name:only-child) {
+      .avatar {
         display: none;
       }
     }

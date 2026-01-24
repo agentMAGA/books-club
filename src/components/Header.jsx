@@ -8,6 +8,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => {setMenuOpen(!menuOpen)};
+  const closeMenu = () => {setMenuOpen(false)};
 
   return (
     <>

@@ -1,13 +1,14 @@
-// SlayderSessions.tsx
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
 import styles from "../scss/components/slayderSessions.module.scss";
-import { slaiderTime } from '../data/slaiderTime';
+import { useSliderEvents } from '../API/UseSliderLogic';
 
-const SlayderSessions = () => {
-  return (
-    <div className={styles.visualBackdrop}>
-      <h4 className={styles.titleEvents}>Мероприятия</h4>
+const SlayderSessions = function () {
+
+    const { slaiderTime, setEventsPlus, setEventsMinus, numberMas } = useSliderEvents();
+    const currentSlide = slaiderTime.find(item => item.id === numberMas);
+
+    return (
+        <div className={styles.visualBackdrop}>
+            <h4 className={styles.titleEvents}>Мероприятия</h4>
 
             <div key={currentSlide.id} className={styles.subtextOfTheEvent}>
 
@@ -31,13 +32,13 @@ const SlayderSessions = () => {
                         </div>
                     </article>
                 </div>
-              </article>
-            </div>
-          </SplideSlide>
-        ))}
-      </Splide>
-    </div>
-  );
-};
 
+                <nav className={styles.rightArrow}>
+                    <button onClick={() => setEventsPlus()} aria-label="Следующий">›</button>
+                </nav>
+
+            </div>
+        </div>
+    )
+}
 export default SlayderSessions;
