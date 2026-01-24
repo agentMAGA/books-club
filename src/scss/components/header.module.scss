@@ -49,6 +49,19 @@ header {
   .burgerMenu {
     margin: 0 15px 0 0;
     margin-left: auto;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+
+    @media (min-width: 768px) {
+      display: none; // ← скрываем на десктопах
+    }
   }
 
   .desktopMenuColor {

@@ -34,7 +34,7 @@
 
     .cardType,
     .cardAuthor {
-      font-size: clamp(13px, 3.4vw, 24px);
+      font-size: 14px;
       opacity: 0.8;
       font-style: italic;
       white-space: nowrap;
@@ -46,9 +46,13 @@
   }
 
   .cardBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     .titleLine {
       font-weight: 700;
-      font-size: clamp(20px, 3.4vw, 40px);
+      font-size: 20px;
       line-height: 1.35;
       margin-bottom: 10px;
 
@@ -58,7 +62,7 @@
     }
 
     .cardContent {
-      font-size: clamp(15px, 3.4vw, 25px);
+      font-size: 15px;
       line-height: 1.6;
       white-space: pre-wrap;
       color: rgba(255, 255, 255, 0.92);
@@ -75,7 +79,7 @@
     justify-content: flex-end;
 
     .date {
-      font-size: clamp(13px, 3.4vw, 24px);
+      font-size: 12px;
       opacity: 0.85;
       font-style: italic;
     }

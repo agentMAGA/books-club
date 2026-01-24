@@ -25,68 +25,18 @@
         font-family: "Cormorant Garamond";
         font-weight: 400;
         font-style: normal, italic;
+
     }
-
-    .timeRangeDate {
-        display: flex;
-        flex-wrap: wrap;
-
-        .usersIcon {
-            display: flex;
-            flex-wrap: wrap !important;
-            margin: 10px 0 0 13vw;
-
-            .numberUsers {
-                margin: 15px 0 0 5px;
-            }
-        }
-    }
-
-    .splideWrapper {
-        position: relative;
-    
-
-        :global(.splide__arrow) {
-            position: absolute !important;
-            top: 50% !important;
-            transform: translateY(-20%) !important;
-            background: #333 !important;
-            border: 2px solid white !important;
-            width: 36px !important;
-            height: 36px !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            cursor: pointer !important;
-            color: white !important;
-            font-size: 24px !important;
-            opacity: 0.8 !important;
-            transition: opacity 0.2s ease !important;
-            z-index: 10 !important;
-        }
-        :global(.splideWrapper .splide__arrow--prev) {
-            left: -20px !important;
-        }
-
-        :global(.splideWrapper .splide__arrow--next) {
-            right: -20px !important;
-        }
-
-        :global(.splideWrapper .splide__arrow:hove) {
-            opacity: 1 !important;
-        }
-    }
-
 
     .subtextOfTheEvent {
         display: flex;
-        flex-direction: column;
-        height: 100%; // чтобы карточки выравнивались по высоте
-        background: #1e1e1e;
-        border-radius: 12px;
-        padding: 1.25rem;
-        color: white;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        border: 1px solid #ffffff;
+        border-radius: 30px;
+        background-color: #141619;
 
         .monstratStyls600 {
             font-family: "Montserrat";
