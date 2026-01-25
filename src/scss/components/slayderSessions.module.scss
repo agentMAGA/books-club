@@ -1,3 +1,12 @@
+.visualBackdropColor{
+  background: #d1d1d1a7 !important;
+  border: 1px solid rgba(131, 131, 131, 0.249)!important;
+  color: #000000!important;
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 0, 0, 0.7) !important;
+}
+
 .visualBackdrop {
     margin: 40px 15px 0 15px;
     border-radius: 30px;
@@ -25,7 +34,15 @@
         font-family: "Cormorant Garamond";
         font-weight: 400;
         font-style: normal, italic;
+    }
+    .titleColor{
+        color: #141619;
+    }
 
+    .subtextColor{
+    border: 1px solid #010101 !important;
+    background-color: #ffffff !important; 
+    color: #000000;
     }
 
     .subtextOfTheEvent {
@@ -36,13 +53,7 @@
         width: 100%;
         border: 1px solid #ffffff;
         border-radius: 30px;
-        background-color: #141619;
-
-        .monstratStyls600 {
-            font-family: "Montserrat";
-            font-weight: 600;
-            font-style: normal, italic;
-        }
+        background-color: #141619; 
 
         .monstratStyls400 {
             font-family: "Montserrat";
@@ -69,6 +80,14 @@
             min-height: calc(1.4em * 4); // ← КЛЮЧЕВОЕ: минимальная высота = 4 строки
         }
 
+        .arrowColor{
+            border: 1px solid #000000 !important;
+            color: rgb(0, 0, 0) !important;
+            button{
+                color: rgb(0, 0, 0) !important;
+            }
+        }
+
         .leftArrow {
             background: rgba(255, 255, 255, 0.27);
             -webkit-backdrop-filter: blur(8px);
@@ -79,8 +98,7 @@
             border: 2px solid #ffffff;
             display: flex;
             padding: 0 5px 2px 5px;
-             transition: background 0.3s;
-
+            transition: background 0.3s;
 
             button {
                 background: transparent;

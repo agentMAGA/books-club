@@ -1,3 +1,29 @@
+.burgerColor {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+
+  .avatar {
+    background: rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
+  }
+
+  .name {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.313) !important;
+  }
+
+  .menuItem {
+    color: rgb(0, 0, 0) !important;
+
+    &.active {
+      background-color: rgb(0, 0, 0) !important;
+      color: rgb(255, 255, 255) !important;
+    }
+    &::after {
+      background: rgba(0, 0, 0, 0.2) !important;
+    }
+  }
+}
+
 .burgerMenu {
   position: fixed;
   top: 0;
@@ -17,6 +43,25 @@
   padding-top: 60px;
   overflow-x: hidden;
 
+  .logoBleack {
+    background-color: #000000 !important;
+  }
+
+  .logoColors {
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    cursor: pointer;
+
+    img {
+      margin: 8px 0 0 0;
+    }
+  }
+
   .closeButton {
     position: absolute;
     top: 16px;
@@ -26,7 +71,6 @@
     border: none;
     background: transparent;
     font-size: 32px;
-    color: white;
     cursor: pointer;
     line-height: 1;
     padding: 0;
@@ -57,7 +101,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 50%; /* чтобы изображение точно было кругом */
+        border-radius: 50%;
+        /* чтобы изображение точно было кругом */
         display: block;
       }
     }
@@ -81,7 +126,7 @@
       font-size: 26px;
       font-weight: 400;
       padding: 14px 0;
-      color: white;
+      color: rgb(255, 255, 255);
       text-align: center;
       cursor: pointer;
 
@@ -93,7 +138,7 @@
       left: 50%;
       transform: translateX(-50%);
       max-width: none;
-      
+
 
       &.active {
         background-color: white;
@@ -122,7 +167,8 @@
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 100vw; /* линия тянется на всю ширину экрана */
+        width: 100vw;
+        /* линия тянется на всю ширину экрана */
         height: 1px;
         background: rgba(255, 255, 255, 0.2);
         z-index: -1;
@@ -133,31 +179,31 @@
       }
     }
 
-.logout {
-  all: inherit;                    // Наследует ВСЕ стили .menuItem
-  appearance: none !important;     // Убирает дефолтный вид кнопки
-  position: relative;
-  font-size: 26px;
-  font-weight: 400;
-  padding: 14px 0;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
-    z-index: -1;
-  }
-}
+    .logout {
+      all: inherit; // Наследует ВСЕ стили .menuItem
+      appearance: none !important; // Убирает дефолтный вид кнопки
+      position: relative;
+      font-size: 26px;
+      font-weight: 400;
+      padding: 14px 0;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+      }
+    }
 
 
     // ✅ Гость без аватара

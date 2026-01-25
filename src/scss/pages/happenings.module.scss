@@ -18,6 +18,12 @@
 
 }
 
+.visualBackdropColor {
+    background: rgba(209, 209, 209, 0.65) !important;
+    color: rgb(0, 0, 0) !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.7) !important;
+}
+
 .visualBackdrop {
     margin: 4vw 4.5vw 0 4.5vw;
     border-radius: 30px;
@@ -71,6 +77,14 @@
                     margin: 18px auto auto 4.4vw !important;
                 }
             }
+        }
+    }
+
+    .subtextOfColor {
+        border: 1px solid #000000 !important;
+        background-color: #fbfdff !important;
+        .usersIcon{
+            border: 1px solid #000000 !important;
         }
     }
 

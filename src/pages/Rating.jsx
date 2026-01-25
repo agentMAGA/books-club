@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import styles from "../scss/pages/rating.module.scss";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
+import { useTheme } from "../store/useTheme";
 
 const USERS = [
   {
@@ -82,11 +83,15 @@ const Rating = () => {
     }
   };
 
+  const { theme } = useTheme();
+
   return (
     <>
       <Header />
-      <div className={styles.container}>
-        <h1 className={styles.title}>Рейтинг</h1>
+      <div className={theme === 'black' ? styles.container : `${styles.container} ${styles.containerColor}`}>
+        <h1 className={theme === 'black' ? styles.title : `${styles.title} ${styles.titleColor}`}>
+          Рейтинг
+        </h1>
 
         <Search/>
 

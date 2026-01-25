@@ -4,37 +4,39 @@ import Search from "../components/Search";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { slaiderPoem } from "../data/slaiderPoem";
+import { useTheme } from "../store/useTheme";
 
 
 const Newspaper = () => {
+  const { theme } = useTheme();
   return (
     <>
-        <Header />
+      <Header />
 
-      <div className={styles.container}>
+      <div className={theme === 'black' ? styles.container : `${styles.container} ${styles.containerColor}`}>
         <h1 className={styles.title}>Газета</h1>
 
-          <Search />
+        <Search />
 
-        <div className={styles.cards} style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+        <div className={styles.cards} style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
           {slaiderPoem.map((poems) =>
-            <div className={stylesPoem.card}>
+            <div className={theme === 'black' ? stylesPoem.card : `${stylesPoem.card} ${stylesPoem.cardColor}`}>
               <div className={stylesPoem.cardHeader}>
                 <span className={stylesPoem.cardType}>{poems.thips}</span>
                 <span className={stylesPoem.cardAuthor}>{poems.autor}</span>
               </div>
-          
+
               <div className={stylesPoem.cardBody}>
                 {/* Первая строка жирная, остальное обычным pre */}
                 <div className={stylesPoem.titleLine}>{poems.title}</div>
                 <pre className={stylesPoem.cardContent}>{poems.text.replace(/^.*\n/, "")}</pre>
               </div>
-          
+
               <div className={stylesPoem.cardFooter}>
                 <span className={stylesPoem.date}>{poems.dateStart}</span>
               </div>
             </div>
-            )}
+          )}
         </div>
       </div>
 

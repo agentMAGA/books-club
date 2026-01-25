@@ -1,7 +1,22 @@
+.titleColor {
+  color: #000000;
+}
+
+.containerColor {
+  .card {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+  }
+  .avatarCircle {
+      background-color: #000000;
+      color: #ffffff !important;
+  }
+}
+
 .title {
-    margin: 50px 0 80px;
-    font-size: 7vw;
-    text-align: center;
+  margin: 50px 0 80px;
+  font-size: 7vw;
+  text-align: center;
 }
 
 .container {
@@ -12,11 +27,11 @@
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 880px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
 
 }
 
@@ -26,7 +41,7 @@
   border-radius: 10px;
   padding: 4px 16px;
   color: #fff;
-  box-shadow: 0 0 10px 5px rgba(255,255,255,0.1);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.303);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,7 +74,7 @@
 
 .firstPosition {
   box-shadow: 0 0 10px 5px #FFD580;
-  
+
   .avatarCircle {
     background-color: #FFD580;
   }
@@ -67,7 +82,7 @@
 
 .twoPosition {
   box-shadow: 0 0 10px 5px #B1B2B2;
-  
+
   .avatarCircle {
     background-color: #B1B2B2;
   }
@@ -75,7 +90,7 @@
 
 .threePosition {
   box-shadow: 0 0 10px 5px #CD7F32;
-  
+
   .avatarCircle {
     background-color: #CD7F32;
   }

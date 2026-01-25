@@ -1,3 +1,6 @@
+.containerColor {
+  color: #000000 !important;
+}
 .container {
   min-height: 100vh;
   padding: 20px;
@@ -9,18 +12,6 @@
     font-size: 7vw;
     text-align: center;
   }
-
-  .search {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 30px;
-  display: flex; /* Flex-контейнер для выравнивания инпута и кнопки */  
-  border: 1px solid #ffffff; /* Белая рамка по макету */  
-  border-radius: 8px; /* Скругление углов */  
-  overflow: hidden; /* Убирает двойные границы между элементами */  
-}
-
-
 
   .cards {
     display: grid;

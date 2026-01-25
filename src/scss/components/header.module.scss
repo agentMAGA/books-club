@@ -6,38 +6,6 @@ header {
   position: sticky;
   top: 0;
 
-  .bleackOff {
-    cursor: pointer;
-    height: 34px;
-    width: 74px;
-    background: #000000;
-    border-radius: 30px;
-
-    .polzunoc {
-      height: 30px;
-      width: 30px;
-      margin: 2px 2px 2px 40px;
-      background: #ffffff;
-      border-radius: 50%
-    }
-  }
-
-  .bleackOn {
-    cursor: pointer;
-    height: 34px;
-    width: 74px;
-    background: #ffffff;
-    border-radius: 30px;
-
-    .polzunoc {
-      height: 30px;
-      width: 30px;
-      margin: 2px;
-      background: #141619;
-      border-radius: 50%
-    }
-  }
-
   .headerIcon {
     display: flex;
     height: 42px;
@@ -53,11 +21,9 @@ header {
     background: transparent;
     border: none;
     cursor: pointer;
+    height: 44px;
+    width: 44px;
 
-    img {
-      height: 24px;
-      width: 24px;
-    }
 
     @media (min-width: 768px) {
       display: none; // ← скрываем на десктопах
@@ -131,6 +97,31 @@ header {
       padding: 8px 16px;
       border-radius: 20px;
       cursor: pointer;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        outline: none;
+        box-shadow: none;
+      }
+
+      .divcolor {
+        background-color: rgb(255, 255, 255) !important;
+      }
+
+      .divChick {
+        background-color: rgb(0, 0, 0);
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        margin: 0 5px 0 0;
+
+        img {
+          height: 26px;
+          width: 26px;
+        }
+      }
+
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);

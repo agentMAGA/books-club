@@ -1,21 +1,38 @@
+.searchColor {
+  border: 1px solid #000000 !important;
+
+  .searchInput {
+    color: #000000 !important;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.563) !important;
+    }
+  }
+
+  .searchButton {
+    color: #000000 !important;
+  }
+}
+
 .search {
   width: 91vw;
   max-width: 880px;
 
   margin: 0 auto 30px;
   display: flex;
-  align-items: center; /* центрируем по вертикали */
-  border: 1px solid #ffffff; /* белая рамка */
-  border-radius: 8px; /* скругление */
-  overflow: hidden; /* убираем двойные границы */
-  background: transparent; /* прозрачный фон */
-  padding: 0 20px; /* отступы 20px слева и справа */
+  align-items: center;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+  padding: 0 20px;
   /* Адаптивная высота: min-height = 48px, но может расти при увеличении шрифта */
   min-height: 48px;
   height: auto;
 
   .searchInput {
-    flex: 1; /* занимает всё доступное пространство */
+    flex: 1;
+    /* занимает всё доступное пространство */
     padding: 12px 16px;
     border: none;
     background: transparent;
@@ -36,7 +53,8 @@
 
   .searchButton {
     width: 48px;
-    min-height: 48px; /* минимальная высота */
+    min-height: 48px;
+    /* минимальная высота */
     border: none;
     background: transparent;
     display: flex;

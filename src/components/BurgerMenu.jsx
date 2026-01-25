@@ -1,9 +1,10 @@
-import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
 import styles from "../scss/components/burgerMenu.module.scss";
+import { useTheme } from "../store/useTheme";
 
 const BurgerMenu = ({ closeMenu }) => {
+  const { theme, toggleTheme } = useTheme();
   const { user, isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
 
@@ -14,23 +15,28 @@ const BurgerMenu = ({ closeMenu }) => {
   };
 
   return (
-    <aside className={styles.burgerMenu} role="dialog" aria-modal="true">
+    <aside className={theme === 'black' ? styles.burgerMenu : `${styles.burgerMenu} ${styles.burgerColor}`} role="dialog" aria-modal="true">
       <button
         className={styles.closeButton}
         onClick={closeMenu}
         aria-label="Закрыть меню"
       >
-        <img src="img/closeMenu.svg" alt="" />
+        <img src={theme === 'black' ? "img/closeMenu.svg" : "img/closeMenuBleack.svg"} alt="closeMenu" />
       </button>
+
+      <div className={theme === 'black' ? styles.logoColors : `${styles.logoColors} ${styles.logoBleack}`}
+        onClick={() => toggleTheme()}>
+        <img src={theme === 'black' ? "public/img/logo-bleack.svg" : "public/img/logo.svg"} alt="logo" />
+      </div>
 
       {/* ✅ ДИНАМИЧЕСКИЙ ПРОФИЛЬ */}
       {isAuthenticated ? (
         <div className={styles.profile}>
           <div className={styles.avatar}>
-            <img 
-              className={styles.avatarImg} 
-              src="img/avatar.jpg" 
-              alt={`${user?.firstName || ''} ${user?.lastName || ''}`} 
+            <img
+              className={styles.avatarImg}
+              src="img/avatar.jpg"
+              alt={`${user?.firstName || ''} ${user?.lastName || ''}`}
             />
           </div>
           <div className={styles.name}>
