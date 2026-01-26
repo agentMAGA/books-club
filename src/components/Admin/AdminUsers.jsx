@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../../scss/components/adminPanel.module.scss';
 import AdminUserCard from '../Admin/AdminUserCard';
+import { useTheme } from '../../store/useTheme';
 
 const mockUsers = [
   {
@@ -37,6 +38,7 @@ const mockUsers = [
 
 const AdminUsers = () => {
   const [filter, setFilter] = React.useState('all');
+  const { theme } = useTheme();
 
   const users = mockUsers; // здесь потом подставишь данные с бэка
 
@@ -85,7 +87,7 @@ const AdminUsers = () => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.adminBlogs}>
+      <div className={theme === 'black' ? styles.adminBlogs : `${styles.adminBlogs} ${styles.adminBlogsColor}`}>
         <div style={{ padding: '10px' }}>
           <h2>Пользователи</h2>
 

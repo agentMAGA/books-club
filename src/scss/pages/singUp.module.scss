@@ -1,26 +1,64 @@
-/* singUp.module.scss — мобильная вёрстка, кнопки снизу вертикально */
-$bg: #141619;
-$text: #ffffff;
-$text-dim: #cfcfcf;
-$line: #505050;
-$stroke: #6a6a6a;
-$stroke-focus: #9f9f9f;
-$btn-primary: #ffffff;
-$btn-secondary: #bdbdbd;
-$btn-text: #111111;
+.containerColor {
+  background: #ffffff !important;
+  color: #000000 !important;
 
-:root {
-  --space-1: 8px;
-  --space-2: 12px;
-  --space-3: 16px;
-  --space-4: 20px;
-  --radius-s: 12px;
-  --radius-m: 14px;
-  --h-input: 52px;
-  --h-btn: 56px;
-  --font-base: 16px;
-  --font-lg: 22px;
-  --font-xl: 36px;
+  span {
+    color: #000000 !important;
+  }
+
+  .progressTitle {
+    color: #000000 !important;
+  }
+
+  .progressBar {
+    &::before {
+      background: #b7b7b7 !important;
+    }
+
+    .progressStep {
+      background: #b7b7b7 !important;
+
+      &.active {
+        background: #000000 !important;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15) !important;
+      }
+    }
+  }
+
+  .form {
+
+    .input,
+    .textarea {
+      border: 1px solid #505050 !important;
+      background: rgba(255, 255, 255, 0.02) !important;
+      color: #000000 !important;
+
+      &::placeholder {
+        color: #000000 !important;
+      }
+
+      &:focus {
+        border-color: #9f9f9f !important;
+      }
+    }
+  }
+
+  .footerActions {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.85) 28%,
+        #ffffff 60%) !important;
+
+    .submitButton {
+      background: #858585 !important;
+      color: #ffffff !important;
+    }
+
+    .secondaryButton {
+      background: #bdbdbd !important;
+      color: #f9f9f9 !important;
+    }
+  }
 }
 
 /* страховки от переполнения */
@@ -40,7 +78,7 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  background: $bg;
+  background: #141619;
 }
 
 img,
@@ -58,13 +96,13 @@ canvas {
   max-inline-size: 100%;
   display: flex;
   flex-direction: column;
-  background: $bg;
-  color: $text;
+  background: #141619;
+  color: #ffffff;
 
   /* внутренние паддинги с safe-area */
   padding-left: clamp(12px, 4vw, 16px);
   padding-right: clamp(12px, 4vw, 16px);
-  padding-top: calc(env(safe-area-inset-top) + var(--space-2));
+  padding-top: calc(env(safe-area-inset-top) + 12px);
 
   @media (min-width: 480px) {
     max-width: 420px;
@@ -100,30 +138,30 @@ canvas {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
-    padding-bottom: calc(var(--h-btn) * 2 + 24px);
+    padding-bottom: calc(56px * 2 + 24px);
     /* запас под нижние кнопки */
   }
 
   .logo {
-    margin: var(--space-1) 0 var(--space-2);
+    margin: 8px 0 12px;
     text-align: center;
 
     img {
       width: 120px;
-      margin: 0 auto var(--space-1);
+      margin: 0 auto 8px;
     }
 
     .title {
-      font-size: var(--font-xl);
+      font-size: 32px;
       line-height: 1.1;
       font-weight: 600;
-      margin: var(--space-1) 0 0;
+      margin: 8px 0 0;
 
       span {
         display: block;
         font-size: 18px;
         line-height: 1.2;
-        color: $text-dim;
+        color: #cfcfcf;
         font-weight: 300;
         margin-top: 4px;
       }
@@ -131,14 +169,14 @@ canvas {
   }
 
   .progress {
-    margin: var(--space-1) 0 var(--space-3);
+    margin: 8px 0 16px;
 
     .progressTitle {
       display: block;
       text-align: center;
-      font-size: var(--font-lg);
-      color: $text-dim;
-      margin-bottom: var(--space-2);
+      font-size: 22px;
+      color: #cfcfcf;
+      margin-bottom: 12px;
       font-weight: 400;
     }
 
@@ -160,7 +198,7 @@ canvas {
         top: 50%;
         transform: translateY(-50%);
         height: 2px;
-        background: $line;
+        background: #505050;
         z-index: 0;
       }
 
@@ -169,12 +207,12 @@ canvas {
         inline-size: 10px;
         block-size: 10px;
         border-radius: 50%;
-        background: $line;
+        background: #505050;
         position: relative;
         z-index: 1;
 
         &.active {
-          background: $text;
+          background: #ffffff;
           box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
         }
       }
@@ -182,14 +220,14 @@ canvas {
   }
 
   .steps {
-    margin-top: var(--space-1);
+    margin-top: 8px;
     width: 100%;
     max-width: 100%;
 
     .form {
       display: none;
       flex-direction: column;
-      gap: var(--space-2);
+      gap: 12px;
       width: 100%;
       max-width: 100%;
 
@@ -202,11 +240,11 @@ canvas {
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        border-radius: var(--radius-s);
-        border: 1px solid $stroke;
+        border-radius: 12px;
+        border: 1px solid #6a6a6a;
         background: rgba(255, 255, 255, 0.02);
-        color: $text;
-        font-size: var(--font-base);
+        color: #ffffff;
+        font-size: 16px;
         -webkit-appearance: none;
         appearance: none;
 
@@ -216,13 +254,13 @@ canvas {
 
         &:focus {
           outline: none;
-          border-color: $stroke-focus;
+          border-color: #9f9f9f;
         }
       }
 
       .input {
-        height: var(--h-input);
-        padding: 0 var(--space-3);
+        height: 52px;
+        padding: 0 16px;
       }
 
       .textarea {
@@ -256,8 +294,8 @@ canvas {
     .submitButton {
       width: 100%;
       min-width: 0;
-      height: var(--h-btn);
-      border-radius: var(--radius-m);
+      height: 56px;
+      border-radius: 14px;
       border: 0;
       font-size: 18px;
       font-weight: 600;
@@ -267,13 +305,13 @@ canvas {
     }
 
     .submitButton {
-      background: $btn-primary;
-      color: $btn-text;
+      background: #ffffff;
+      color: #111111;
     }
 
     .secondaryButton {
-      background: $btn-secondary;
-      color: $btn-text;
+      background: #bdbdbd;
+      color: #111111;
     }
 
     /* На больших экранах тоже оставляем вертикально — убираем все media-условия,
@@ -289,10 +327,6 @@ canvas {
 
 /* Тюнинг для узких телефонов */
 @media (max-width: 340px) {
-  :root {
-    --font-xl: 32px;
-    --font-lg: 20px;
-  }
 
   .container {
     .logo img {

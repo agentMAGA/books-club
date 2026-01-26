@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import {NavLink , useNavigate } from "react-router-dom"
 import styles from "../scss/pages/singUp.module.scss";
+import { useTheme } from "../store/useTheme";
 
 export default function SingUp() {
+  const { theme } = useTheme();
   const [step, setStep] = useState(0); // 0..4
   const navigate = useNavigate(); 
 
@@ -17,12 +19,12 @@ export default function SingUp() {
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
   return (
-    <div className={styles.container}>
+    <div className={theme === 'black' ? styles.container : `${styles.container} ${styles.containerColor}`}>
       {/* Верхняя панель с системной кнопкой назад */}
       <header className={styles.header}>
         <button type="button" className={styles.backBtn} onClick={back} aria-label="Назад">
           {/* <NavLink to="/"> */}
-          <img src="/img/back.svg" alt="" onClick={()=>navigate(-1)} />
+          <img src={theme === 'black' ? "img/back.svg" : "img/backBleack.svg"} alt="back" onClick={()=>navigate(-1)} />
           {/* </NavLink> */}
         </button>
       </header>
@@ -30,7 +32,7 @@ export default function SingUp() {
       {/* Прокручиваемая область контента */}
       <div className={styles.contentScroll}>
         <div className={styles.logo}>
-          <NavLink to="/"><img src="/img/logo.svg" alt="Logo" /></NavLink>
+          <NavLink to="/"><img src={theme === 'black' ? "img/logo.svg" : "img/logo-bleack.svg"} alt="Logo" /></NavLink>
           <h1 className={styles.title}>
             Анкета <br />
             <span>для регистрации</span>

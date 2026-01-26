@@ -1,3 +1,62 @@
+.cardColor {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.424) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+
+  .userInfoLine {
+    color: rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .iconButton {
+    border: 1px solid rgba(0, 0, 0, 0.3) !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    color: #000000;
+  }
+
+  .iconButton:hover {
+    background-color: rgba(0, 0, 0, 0.14) !important;
+  }
+
+  .rolePill {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: #000000;
+  }
+
+  .rolePill:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* активные роли */
+
+  .rolePillActiveGold {
+    border-color: #ffcc00;
+    background-color: rgba(255, 204, 0, 0.18);
+    color: #f1c40f;
+  }
+
+  .rolePillActiveSilver {
+    border-color: #b5bfc5;
+    background-color: rgba(189, 195, 199, 0.18);
+    color: #bdc3c7;
+  }
+
+  .rolePillActiveBronze {
+    border-color: #cd7f32;
+    background-color: rgba(205, 127, 50, 0.18);
+    color: #cd7f32;
+  }
+
+  .excerpt {
+  color: rgba(0, 0, 0, 0.86);
+}
+.moderation {
+  border: 1px dashed rgba(0, 0, 0, 0.35);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+}
+
 .card {
   background-color: #111111;
   border-radius: 12px;
@@ -90,7 +149,8 @@
   font-size: 14px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.86);
-  max-height: 3.9em; /* 2–3 строки */
+  max-height: 3.9em;
+  /* 2–3 строки */
   overflow: hidden;
 }
 

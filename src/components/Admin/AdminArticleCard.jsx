@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../scss/components/Admin/adminArticleCard.module.scss";
+import { useTheme } from "../../store/useTheme";
 
 const STATUS_LABELS = {
   pending: "На модерации",
@@ -92,10 +93,11 @@ const AdminArticleCard = ({
   onDelete,
   onOpen,
 }) => {
+  const { theme } = useTheme();
   const statusLabel = STATUS_LABELS[status] ?? status;
 
   return (
-    <article className={styles.card}>
+    <article className={theme === 'black' ? styles.card : `${styles.card} ${styles.cardColor}`}>
       {/* ВЕРХНЯЯ СТРОКА: тип, автор, статус */}
       <header className={styles.header}>
         <div className={styles.metaLeft}>

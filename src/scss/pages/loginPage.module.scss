@@ -1,3 +1,41 @@
+.containerColor {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+
+  .form {
+    .input {
+      border: 1px solid rgba(0, 0, 0, 0.6) !important;
+      color: #000000 !important;
+
+      &::placeholder {
+        color: rgba(1, 1, 1, 0.6) !important;
+      }
+
+      &:focus {
+        border-color: #afafaf !important;
+        background-color: rgba(162, 162, 162, 0.187) !important;
+      }
+    }
+
+    .forgotLink {
+      color: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .submitButton {
+      background: #00000092 !important;
+      color: #ffffff !important;
+
+      &:hover {
+        background: #020202 !important;
+      }
+    }
+  }
+
+  .registerLink {
+    color: rgb(0, 0, 0) !important;
+  }
+}
+
 .container {
   height: 100vh;
   display: flex;
@@ -17,16 +55,17 @@
     align-items: center;
     margin-bottom: 40px;
 
+    .logo {
+      width: 173px;
+      height: 92px;
+      margin-bottom: 0;
+
+    }
+
     .logoText {
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 32px;
-      color: #fff;
-      -webkit-user-select: none; /* для Safari, iOS */
-      -moz-user-select: none;    /* для Firefox (опционально) */
-      user-select: none;
-      margin: 0;
+      margin: 10px 0 0 40px;
+      width: 78px;
+      height: 26px;
     }
   }
 
@@ -77,8 +116,10 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      -webkit-user-select: none; /* для Safari, iOS */
-      -moz-user-select: none;    /* для Firefox (опционально) */
+      -webkit-user-select: none;
+      /* для Safari, iOS */
+      -moz-user-select: none;
+      /* для Firefox (опционально) */
       user-select: none;
       transition: background-color 0.2s ease;
 

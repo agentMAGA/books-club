@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../scss/components/Admin/adminArticleCard.module.scss";
+import { useTheme } from "../../store/useTheme";
 
 const STATUS_LABELS = {
   pending: "Ожидает подтверждения",
@@ -108,6 +109,7 @@ const AdminUserCard = ({
   onOpen,
   onChangeRole,   // (id, 'gold' | 'silver' | 'bronze')
 }) => {
+  const { theme } = useTheme();
   const normalizedRole = normalizeRole(role);
   const roleLabel = ROLE_LABELS[normalizedRole] ?? role;
   const statusLabel = STATUS_LABELS[status] ?? status ?? "—";
@@ -115,7 +117,7 @@ const AdminUserCard = ({
   const fullName = [first_name, last_name].filter(Boolean).join(" ") || "Без имени";
 
   return (
-    <article className={styles.card}>
+    <article className={theme === 'black' ? styles.card : `${styles.card} ${styles.cardColor}`}>
       {/* ВЕРХНЯЯ СТРОКА: имя, id, статус */}
       <header className={styles.header}>
         <div className={styles.metaLeft}>

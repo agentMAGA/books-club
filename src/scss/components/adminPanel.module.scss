@@ -1,3 +1,35 @@
+.adminBlogsColor {
+  .filterBtn {
+    border: 1px solid rgba(0, 0, 0, 0.35) !important;
+    color: #000000 !important;
+  }
+
+  .filterBtn:hover {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+  }
+
+  .filterBtnActive {
+    background-color: #0000008a !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+}
+
+ .adminHeaderColor {
+    ul {
+      li {
+        border: 2px solid rgb(0, 0, 0) !important;
+      }
+
+      .active {
+        background-color: rgb(0, 0, 0) !important;
+        color: rgb(255, 255, 255) !important;
+      }
+    }
+  }
+
 .adminBlogs {
   width: 100%;
   max-width: 1100px;
@@ -8,29 +40,36 @@
   justify-content: center;
 }
 
-.adminHeader{
+.adminHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a{
+    img{
+      width: 27px;
+      height: 24px;
+    }
+  }
+
+  ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    ul{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        list-style-type: none;
+    gap: 10px;
+    list-style-type: none;
 
-        li{
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 10px;
-            border: 2px solid white;
-        }
-
-        .active{
-            background-color: white;
-            color: black;
-        }
+    li {
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 10px;
+      border: 2px solid white;
     }
+
+    .active {
+      background-color: white;
+      color: black;
+    }
+  }
 }
 
 .filterBar {
