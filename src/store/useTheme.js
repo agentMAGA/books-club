@@ -1,9 +1,20 @@
-import { create }  from "zustand";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-export const useTheme = create((set) => ({
-  theme: 'black', // начальное значение
-  toggleTheme: () =>
-    set((state) => ({
-      theme: state.theme === 'black' ? 'white' : 'black',
-    })),
-}));
+export const useTheme = create(
+  persist(
+    (set) => ({
+      // Начальное значение — будет использовано, если нет данных в localStorage
+      theme: 'black',
+
+      toggleTheme: () =>
+        set((state) => {
+          const newTheme = state.theme === 'black' ? 'white' : 'black';
+          return { theme: newTheme };
+        }),
+    }),
+    {
+      name: 'theme-storage', // имя ключа в localStorage
+    }
+  )
+);
