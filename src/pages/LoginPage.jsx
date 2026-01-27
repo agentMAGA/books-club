@@ -53,6 +53,13 @@ const handleSubmit = async (e) => {
 
   return (
     <div className={styles.container}>
+
+        <header className={styles.header}>
+          <NavLink to="/">
+          <img src="img/back.svg" alt="back" />
+          </NavLink>
+        </header>
+
       <div className={styles.logo}>
         <NavLink to="/">
           <img src="img/logo.svg" alt="logo" />
@@ -92,7 +99,7 @@ const handleSubmit = async (e) => {
       </form>
 
       {error && <div className={styles.error}>{error}</div>}
-      <NavLink to="/singup" className={styles.registerLink}>
+      <NavLink to="/registration" className={styles.registerLink}>
         Зарегистрироваться
       </NavLink>
     </div>
