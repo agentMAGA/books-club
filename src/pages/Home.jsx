@@ -13,15 +13,8 @@ function Home() {
       <main>
         <section className={styles.innerSpacingBanner}>
           <h1 className={styles.titleStyls}>Books Club</h1>
-          <p className={styles.subtextTitle + " " + styles.tecstUppercase}>
-            Космос идей. Вселенная книг.
-          </p>
-          <button
-            className={styles.tecstUppercase + " " + styles.buttonFonts}
-            onClick={() => navigate("/singup")}
-          >
-            Присоединиться
-          </button>
+          <p className={styles.subtextTitle + " " +styles.tecstUppercase}>Космос идей. Вселенная книг.</p>
+          <button className={styles.tecstUppercase + " " + styles.buttonFonts}  onClick={()=>navigate("/registration")}>Присоединиться</button>
         </section>
         <section className={styles.innerSpacing}>
           <h2 className={styles.titleCenter}>О нас </h2>

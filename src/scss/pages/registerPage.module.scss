@@ -12,9 +12,9 @@
   overflow: hidden;
 
   .header{
-    position: absolute;
-    top: 10px;
-    left: 10px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
   }
 
   .logo {
@@ -29,8 +29,8 @@
       font-weight: 400;
       font-size: 32px;
       color: #fff;
-      -webkit-user-select: none; /* для Safari, iOS */
-      -moz-user-select: none;    /* для Firefox (опционально) */
+      -webkit-user-select: none;
+      -moz-user-select: none;
       user-select: none;
       margin: 0;
     }
@@ -59,18 +59,10 @@
         border-color: #aaa;
         background-color: rgba(255, 255, 255, 0.1);
       }
-    }
 
-    .forgotLink {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      margin-top: -6px;
-      margin-bottom: 18px;
-      align-self: flex-start;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
       }
     }
 
@@ -83,18 +75,35 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      -webkit-user-select: none; /* для Safari, iOS */
-      -moz-user-select: none;    /* для Firefox (опционально) */
+      -webkit-user-select: none;
+      -moz-user-select: none;
       user-select: none;
-      transition: background-color 0.2s ease;
+      transition: all 0.2s ease;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background: #e3e3e3;
+      }
+
+      &:disabled {
+        background: #666;
+        color: #999;
+        cursor: not-allowed;
       }
     }
   }
 
-  .registerLink {
+  .error {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid rgba(255, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #ff6b6b;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .loginLink {
     margin-top: 50px;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.85);
@@ -103,6 +112,17 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+/* Адаптив для планшетов и ПК */
+@media (min-width: 768px) {
+  .container {
+    padding: 50px 30px;
+
+    .form {
+      gap: 16px;
     }
   }
 }
@@ -129,20 +149,29 @@
         font-size: 18px;
       }
 
-      .forgotLink {
-        font-size: 16px;
-        margin-bottom: 24px;
-      }
-
       .submitButton {
         font-size: 20px;
         padding: 18px;
       }
     }
 
-    .registerLink {
+    .error {
+      font-size: 16px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .loginLink {
       margin-top: 80px;
       font-size: 16px;
     }
+  }
+}
+
+/* Состояния для disabled элементов */
+.container {
+  .input:disabled,
+  .submitButton:disabled {
+    cursor: not-allowed;
   }
 }

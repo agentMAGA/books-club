@@ -8,6 +8,7 @@ import SingUp from "./pages/SingUp"
 import Happenings from "./pages/Happenings";
 import Rating from "./pages/Rating";
 import AdminPanel from "./pages/AdminPanel"
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/singup" element={<SingUp />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/registration" element={<RegisterPage />} />
       </Routes>
     </>
   );
