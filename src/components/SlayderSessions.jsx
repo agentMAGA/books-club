@@ -16,7 +16,7 @@ const SlayderSessions = function () {
                     <button onClick={() => setEventsMinus()} aria-label="Предыдущий">‹</button>
                 </nav>
 
-                <div>
+                <div style={{flex:1}}>
                     <article>
                         <p><strong className={styles.monstratStyls400}>{currentSlide.title}</strong></p>
                         <p className={styles.monstratStyls300 + " " + styles.positionSlaiderFiks}>

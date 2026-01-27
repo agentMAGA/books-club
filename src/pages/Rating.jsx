@@ -1,7 +1,7 @@
-import React from "react";
 import Header from "../components/Header";
 import styles from "../scss/pages/rating.module.scss";
 import Footer from "../components/Footer";
+import Search from "../components/Search";
 
 const USERS = [
   {
@@ -87,6 +87,8 @@ const Rating = () => {
       <Header />
       <div className={styles.container}>
         <h1 className={styles.title}>Рейтинг</h1>
+
+        <Search/>
 
         <div className={styles.cards}>
           {USERS.map((item) => (

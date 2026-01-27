@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const Settings = () => {
   return (
     <>
-      <div className={styles.main}>
+      <div className={styles.main} style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
         <header className={styles.header}>
           <Link to="/">
           <img src="img/back.svg" alt="back" />
