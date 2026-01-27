@@ -35,7 +35,7 @@ const Header = () => {
             onClick={() => toggleTheme()} >
               <img src={theme === 'black' ? "img/logo-bleack.svg" : "img/logo.svg"} alt="icon" />
             </div>
-            <Link to={'login'}>
+            <Link to={'/login'}>
               ВОЙТИ
             </Link>
           </button>
