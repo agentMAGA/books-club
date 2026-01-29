@@ -40,7 +40,7 @@ function Home() {
           </p>
         </section>
 
-        <SlayderSessions />
+          <SlayderSessions />
 
         <div className={styles.cards}>
           <div className={styles.h3title}>

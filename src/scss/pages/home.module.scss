@@ -1,4 +1,7 @@
 main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
     .innerSpacing {
         margin: 35px 15px 0 15px;
@@ -17,12 +20,24 @@ main {
             font-style: medium;
             font-weight: 500;
         }
-
+        
         .subtextTitle {
             margin: -20px 0 20px 0;
             font-family: "Montserrat", sans-serif;
             font-style:  medium , italic; 
             font-weight: 200;
+        }
+        
+        @media (min-width: 768px) {
+            text-align: center;
+            .titleStyls {
+                font-size: 3.8rem;
+                font-weight: 600;
+            }
+            .subtextTitle{
+                font-size: 1.1rem;
+                font-weight: 300;
+            }
         }
     }
 
@@ -31,6 +46,9 @@ main {
         font-family: "Montserrat", sans-serif;
         font-style: medium;
         font-weight: 600;
+        @media (min-width: 768px) {
+            font-size: 1.5rem;
+        }
     }
 
     .buttonFonts{
@@ -63,6 +81,9 @@ main {
         font-family: "Montserrat", sans-serif;
         font-style: medium;
         font-weight: 400;
+        @media (min-width: 768px) {
+            font-size: 1.3rem;
+        }
     }
 
     .cards {

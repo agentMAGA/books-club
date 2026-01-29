@@ -2,6 +2,7 @@ import React from 'react';
 import { useAdminRouts } from '../../store/useAdminRouts';
 import styles from '../../scss/components/adminPanel.module.scss';
 import { Link } from 'react-router';
+import { useTheme } from '../../store/useTheme';
 
 const ADMINROUTS = [
     {
@@ -19,11 +20,12 @@ const ADMINROUTS = [
 ]
 
 const AdminHeader = () => {
+    const { theme } = useTheme();
   const {setActiveRoute , activeRoute} = useAdminRouts(); 
   return (
-    <header className={styles.adminHeader}>
+    <header className={theme === 'black' ? styles.adminHeader : `${styles.adminHeader} ${styles.adminHeaderColor}`}>
         <Link to="/">
-          <img src="img/back.svg" alt="back" />
+          <img src={theme === 'black' ? "img/back.svg" : "img/backBleack.svg"} alt="back" />
         </Link>
         <ul>
             {ADMINROUTS.map((item)=>(
@@ -35,5 +37,5 @@ const AdminHeader = () => {
     </header>
   );
 };
-
+// {theme === 'black' ? "img/back.svg" : "img/backBleack.svg"}
 export default AdminHeader

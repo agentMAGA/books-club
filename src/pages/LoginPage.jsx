@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { useState } from "react";
 import { useAuthStore } from "../store/authStore";
+import { useTheme } from "../store/useTheme";
 import apiCall from "../API/apiClient";
 import styles from "../scss/pages/loginPage.module.scss";
 
@@ -9,9 +10,10 @@ const LoginPage = () => {
     username: '',
     password: '' 
   });
+
+  const { theme } = useTheme();
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
   const setToken = useAuthStore(state => state.setToken);
   const navigate = useNavigate();
 
@@ -52,19 +54,18 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className={styles.container}>
-
-        <header className={styles.header}>
-          <NavLink to="/">
-          <img src="img/back.svg" alt="back" />
-          </NavLink>
-        </header>
-
+    <div className={theme === 'black' ? styles.container : `${styles.container} ${styles.containerColor}`}>
       <div className={styles.logo}>
         <NavLink to="/">
-          <img src="img/logo.svg" alt="logo" />
+          <img src={theme === 'black' ? "img/logo.svg" : "img/logo-bleack.svg"}
+          alt="logo" 
+          className={styles.logo}
+          />
+          <img src={theme === 'black' ? "img/logo-text.svg"  : "img/logo-text-bleack.svg" }
+          alt="logo-text" 
+          className={styles.logoText} 
+          />
         </NavLink>
-        <h1 className={styles.logoText}>Arête</h1>
       </div>
 
       <form className={styles.form} onSubmit={handleSubmit}>

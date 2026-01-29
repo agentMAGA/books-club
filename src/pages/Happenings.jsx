@@ -3,8 +3,10 @@ import Footer from '../components/Footer';
 import Search from '../components/Search';
 import styles from "../scss/pages/happenings.module.scss";
 import { slaiderTime } from '../data/slaiderTime';
+import { useTheme } from '../store/useTheme';
 
 const Happenings = function () {
+    const { theme } = useTheme();
     return (
         <div className={styles.container}>
             <Header />
@@ -12,10 +14,10 @@ const Happenings = function () {
 
             <Search />
 
-            <div className={styles.visualBackdrop}>
+            <div className={theme === 'black' ? styles.visualBackdrop  : `${styles.visualBackdrop } ${styles.visualBackdropColor}`}>
 
                 {slaiderTime.map((item) => (
-                    <div className={styles.subtextOfTheEvent} key={item.id}>
+                    <div className={theme === 'black' ? styles.subtextOfTheEvent : `${styles.subtextOfTheEvent} ${styles.subtextOfColor }`} key={item.id}>
                         <div className={styles.suvent}>
                             <article>
                                 <p><strong className={styles.monstratStyls400}>{item.title}</strong></p>

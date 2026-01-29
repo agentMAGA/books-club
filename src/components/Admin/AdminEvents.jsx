@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../scss/components/adminPanel.module.scss";
 import AdminEventCard from "../Admin/AdminEventCard";
+import { useTheme } from "../../store/useTheme";
 
 const mockEvents = [
   {
@@ -26,6 +27,7 @@ const mockEvents = [
 ];
 
 const AdminEvents = () => {
+  const { theme } = useTheme();
   const [filter, setFilter] = React.useState("all");
 
   const events = mockEvents; // сюда потом подставишь реальные данные
@@ -60,8 +62,8 @@ const AdminEvents = () => {
   };
 
   return (
-    <section className={styles.container}>
-      <div className={styles.adminBlogs}>
+    <section className={styles.container }>
+      <div className={theme === 'black' ? styles.adminBlogs : `${styles.adminBlogs} ${styles.adminBlogsColor}`}>
         <div style={{ padding: "10px" }}>
           <h2>Мероприятия</h2>
 

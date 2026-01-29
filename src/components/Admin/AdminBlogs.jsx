@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../scss/components/adminPanel.module.scss";
 import AdminArticleCard from "../Admin/AdminArticleCard";
+import { useTheme } from "../../store/useTheme";
 
 const mockArticles = [
   {
@@ -25,6 +26,7 @@ const mockArticles = [
 ];
 
 const AdminBlogs = () => {
+  const { theme } = useTheme();
   const [filter, setFilter] = React.useState("all");
 
   const articles = mockArticles; 
@@ -60,7 +62,7 @@ const AdminBlogs = () => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.adminBlogs}>
+      <div className={theme === 'black' ? styles.adminBlogs : `${styles.adminBlogs} ${styles.adminBlogsColor}`}>
         <div style={{padding:'10px'}}>
           <h2>Статьи</h2>
 

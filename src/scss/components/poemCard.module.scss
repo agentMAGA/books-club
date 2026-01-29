@@ -1,5 +1,24 @@
+.cardColor {
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 30px 15px rgba(0, 0, 0, 0.67) !important;
+    .cardType,
+    .cardAuthor {
+      color: #000000 !important;
+    }
+        .titleLine {
+          color: #000000 !important;
+        }
+  .cardContent {
+    color: #000000 !important;
+  }
+    .cardFooter {
+      color: #000000 !important;
+    }
+}
+
 .card {
-  background-color: #1a1a1a;
+  background-color: #000000;
   border-radius: 10px;
   padding: 16px 16px 12px;
   color: #fff;
@@ -9,7 +28,7 @@
   /* дата всегда внизу */
   row-gap: 8px;
   // max-width: 100%;
-  
+
   @media (min-width: 768px) {
     width: 740px;
   }
@@ -40,7 +59,7 @@
       white-space: nowrap;
 
       @media (min-width: 768px) {
-        font-size: 18px;  
+        font-size: 18px;
       }
     }
   }
@@ -50,6 +69,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     .titleLine {
       font-weight: 700;
       font-size: 20px;
@@ -57,8 +77,12 @@
       margin-bottom: 10px;
 
       @media (min-width: 768px) {
-        font-size: 24px;  
+        font-size: 24px;
       }
+    }
+
+    .cardContentColor {
+      color: #000000 !important;
     }
 
     .cardContent {
@@ -69,7 +93,7 @@
       font-style: italic;
 
       @media (min-width: 768px) {
-        font-size: 20px;  
+        font-size: 20px;
       }
     }
   }
@@ -95,12 +119,14 @@
   min-height: 200px;
   font-style: italic;
 
-  .leftArrow, .rightArrow {
+  .leftArrow,
+  .rightArrow {
     transition: all 0.3s ease;
     cursor: pointer;
   }
 
-  .leftArrow:hover, .rightArrow:hover {
+  .leftArrow:hover,
+  .rightArrow:hover {
     background: rgba(255, 255, 255, 0.45);
     border-color: #ffffff;
     transform: scale(1.1);
@@ -113,6 +139,15 @@
 
   .rightArrow:hover {
     transform: translateX(-1em) scale(1.1);
+  }
+
+  .arrowColor {
+    border: 1px solid #000000 !important;
+    color: rgb(0, 0, 0) !important;
+
+    button {
+      color: rgb(0, 0, 0) !important;
+    }
   }
 
   .leftArrow {

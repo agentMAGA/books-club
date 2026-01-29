@@ -7,5 +7,19 @@
     margin-top: 50px;
     padding: 50px 0 50px 0;
     background-color: black; 
-
+        img{
+        width: 35vw;
+        height: 20vw;
+        max-width: 300px;
+        max-height: 150px;
+    }
+    .logoText{
+        width: 20vw;
+        height: 10vw;
+        max-width: 300px;
+        max-height: 150px;
+    }
+}
+.footerColor{
+    background-color: rgba(204, 204, 204, 0.44);
 }

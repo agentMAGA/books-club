@@ -1,15 +1,17 @@
-import React from "react";
 import styles from "../scss/pages/settings.module.scss";
 import Footer from "../components/Footer";
 import { Link } from "react-router";
+import { useTheme } from "../store/useTheme";
 
 const Settings = () => {
+  const {theme} = useTheme();
   return (
     <>
-      <div className={styles.main} style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
-        <header className={styles.header}>
+      <div className={theme === 'black' ? styles.main : `${styles.main} ${styles.mainColor}` } 
+      style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center"}}>
+        <header className={styles.back}>
           <Link to="/">
-          <img src="img/back.svg" alt="back" />
+          <img src={theme === 'black' ? "img/back.svg" : "img/backBleack.svg"} alt="back" />
           </Link>
         </header>
         <div className={styles.title}>

@@ -8,11 +8,13 @@ import SingUp from "./pages/SingUp"
 import Happenings from "./pages/Happenings";
 import Rating from "./pages/Rating";
 import AdminPanel from "./pages/AdminPanel"
+import { useTheme } from "./store/useTheme";
 import RegisterPage from "./pages/RegisterPage";
 
 function App() {
+  const { theme } = useTheme();
   return (
-    <>
+    <div className={ theme === 'black' ? "app" : "appColor" }>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newspaper" element={<Newspaper />} />
@@ -24,7 +26,7 @@ function App() {
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/registration" element={<RegisterPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
