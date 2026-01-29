@@ -26,7 +26,7 @@ const BurgerMenu = ({ closeMenu }) => {
 
       <div className={theme === 'black' ? styles.logoColors : `${styles.logoColors} ${styles.logoBleack}`}
         onClick={() => toggleTheme()}>
-        <img src={theme === 'black' ? "public/img/logo-bleack.svg" : "public/img/logo.svg"} alt="logo" />
+        <img src={theme === 'black' ? "img/logo-bleack.svg" : "img/logo.svg"} alt="logo" />
       </div>
 
       {/* ✅ ДИНАМИЧЕСКИЙ ПРОФИЛЬ */}

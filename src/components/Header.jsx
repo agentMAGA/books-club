@@ -12,6 +12,7 @@ const Header = () => {
 
   return (
     <>
+      {menuOpen && <BurgerMenu closeMenu={closeMenu} />}
       <header className={styles.header}>
         <NavLink to="/" className={styles.headerIcon}>
           <img src={theme === 'black' ? "img/logo.svg" : "img/logo-bleack.svg"} alt="icon" />
@@ -19,9 +20,8 @@ const Header = () => {
         </NavLink>
 
         <img className={styles.burgerMenu}
-          src={theme === 'black' ? "img/burger-menu.svg" : "public/img/burger-menu-bleack.svg"}
+          src={theme === 'black' ? "img/burger-menu.svg" : "img/burger-menu-bleack.jpg"}
           alt="menu" onClick={openMenu} />
-        {menuOpen && <BurgerMenu closeMenu={closeMenu} />}
 
         <nav className={theme === 'black' ? styles.desktopMenu : `${styles.desktopMenu} ${styles.desktopMenuColor}`}>
           <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : "")}>ГЛАВНАЯ</NavLink>
