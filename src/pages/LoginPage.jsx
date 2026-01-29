@@ -100,7 +100,7 @@ const handleSubmit = async (e) => {
       </form>
 
       {error && <div className={styles.error}>{error}</div>}
-      <NavLink to="/singup" className={styles.registerLink}>
+      <NavLink to="/registration" className={styles.registerLink}>
         Зарегистрироваться
       </NavLink>
     </div>

@@ -124,7 +124,7 @@ const BurgerMenu = ({ closeMenu }) => {
             </NavLink>
 
             <NavLink
-              to="/singup"
+              to="/registration"
               className={({ isActive }) =>
                 isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
               }
