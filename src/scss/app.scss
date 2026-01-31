@@ -1,5 +1,5 @@
 .app {
-    margin: 0 0 auto 0;
+    margin: 0 0 auto 0 ;
     color: #ffffff;
     background-color: #141619;
 
@@ -19,7 +19,6 @@
 }
 
 .appColor {
-    margin: 0 0 auto 0;
     color: #000000;
     background-color: #ffffff;
 }
@@ -29,4 +28,8 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+body{
+    margin: 0;
 }
