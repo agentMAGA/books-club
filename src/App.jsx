@@ -10,6 +10,7 @@ import Rating from "./pages/Rating";
 import AdminPanel from "./pages/AdminPanel"
 import { useTheme } from "./store/useTheme";
 import RegisterPage from "./pages/RegisterPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const { theme } = useTheme();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/singup" element={<SingUp />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/registration" element={<RegisterPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
