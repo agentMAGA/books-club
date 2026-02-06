@@ -130,3 +130,51 @@ header {
   }
 
 }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoutLink {
+  cursor: pointer;
+}
+
+.userName {
+  white-space: nowrap;
+}
+
+/* 🔁 ВОЗВРАЩАЕМ ВИД ПЕРЕКЛЮЧАТЕЛЯ ТЕМЫ */
+.actions .divChick {
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  height: 26px;
+  width: 26px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions .divChick img {
+  height: 26px;
+  width: 26px;
+}
+
+
+.actions .divChick {
+  background-color: #000;
+}
+
+.actions .divcolor {
+  background-color: #fff !important;
+}
+
+
+/* 📱 Mobile: скрываем правые действия */
+@media (max-width: 767px) {
+  .actions {
+    display: none;
+  }
+}

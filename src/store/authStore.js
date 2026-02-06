@@ -1,37 +1,37 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export const useAuthStore = create(
   persist(
     (set) => ({
       token: null,
       user: null,
-      loading: true,
+      loading: false,
       isAuthenticated: false,
 
-      // ✅ Функция должна обновлять ВСЕ поля
-      setToken: (newToken, userData) => set({ 
-        token: newToken,
-        user: userData,
-        loading: false,
-        isAuthenticated: !!newToken  // Автоматически true при логине
-      }),
+      setToken: (newToken, userData) =>
+        set({
+          token: newToken,
+          user: userData,
+          isAuthenticated: true,
+        }),
 
-      logout: () => set({ 
-        token: null,
-        user: null,
-        loading: false,
-        isAuthenticated: false 
-      }),
+      logout: () => {
+        set({
+          token: null,
+          user: null,
+          isAuthenticated: false,
+        });
+        localStorage.removeItem("auth-storage");
+      },
     }),
-    { 
-      name: 'auth-storage',
-      // ✅ Автосохранение всех полей
-      partialize: (state) => ({ 
-        token: state.token, 
+    {
+      name: "auth-storage",
+      partialize: (state) => ({
+        token: state.token,
         user: state.user,
-        isAuthenticated: state.isAuthenticated 
-      })
+        isAuthenticated: state.isAuthenticated,
+      }),
     }
   )
 );

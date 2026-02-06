@@ -1,0 +1,46 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.layout {
+  width: 100%;
+  max-width: 1100px;
+  padding: 24px 12px 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    padding: 16px 8px 32px;
+    gap: 16px;
+  }
+}
+
+
+/* ===== LIGHT THEME: CREATE FORM ===== */
+.cardLight.createForm {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.cardLight .input,
+.cardLight .textarea {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #000;
+}
+
+.cardLight .input::placeholder,
+.cardLight .textarea::placeholder {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.cardLight .input:focus,
+.cardLight .textarea:focus {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.05);
+}

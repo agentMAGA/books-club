@@ -1,41 +1,45 @@
-import React from 'react';
-import { useAdminRouts } from '../../store/useAdminRouts';
-import styles from '../../scss/components/adminPanel.module.scss';
-import { Link } from 'react-router';
-import { useTheme } from '../../store/useTheme';
+import styles from "../../scss/components/Admin/adminHeader.module.scss";
+import { useTheme } from "../../store/useTheme";
 
-const ADMINROUTS = [
-    {
-        url:'blogs',
-        route:'Статьи'
-    },
-    {
-        url:'events',
-        route:'Мероприятия'
-    },
-    {
-        url:'users',
-        route:'Пользователи'
-    },
-]
+const AdminHeader = ({ activeTab, setActiveTab }) => {
+  const { theme } = useTheme();
 
-const AdminHeader = () => {
-    const { theme } = useTheme();
-  const {setActiveRoute , activeRoute} = useAdminRouts(); 
   return (
-    <header className={theme === 'black' ? styles.adminHeader : `${styles.adminHeader} ${styles.adminHeaderColor}`}>
-        <Link to="/">
-          <img src={theme === 'black' ? "img/back.svg" : "img/backBleack.svg"} alt="back" />
-        </Link>
-        <ul>
-            {ADMINROUTS.map((item)=>(
-                <li key={item.url} onClick={()=>setActiveRoute(item.url)} className={item.url === activeRoute && styles.active}>
-                    {item.route}
-                </li>
-            ))}
-        </ul>
-    </header>
+    <nav
+      className={`${styles.header} ${
+        theme !== "black" ? styles.headerLight : ""
+      }`}
+    >
+      <ul className={styles.tabs}>
+        <li
+          className={`${styles.tab} ${
+            activeTab === "posts" ? styles.active : ""
+          }`}
+          onClick={() => setActiveTab("posts")}
+        >
+          Стихи
+        </li>
+
+        <li
+          className={`${styles.tab} ${
+            activeTab === "events" ? styles.active : ""
+          }`}
+          onClick={() => setActiveTab("events")}
+        >
+          Мероприятия
+        </li>
+
+        <li
+          className={`${styles.tab} ${
+            activeTab === "users" ? styles.active : ""
+          }`}
+          onClick={() => setActiveTab("users")}
+        >
+          Пользователи
+        </li>
+      </ul>
+    </nav>
   );
 };
-// {theme === 'black' ? "img/back.svg" : "img/backBleack.svg"}
-export default AdminHeader
+
+export default AdminHeader;

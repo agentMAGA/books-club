@@ -1,0 +1,215 @@
+.section {
+  width: 100%;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* карточка */
+.card {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardLight {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* кнопки действий */
+.btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btnDanger {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.btnDanger:hover {
+  background: rgba(255, 107, 107, 0.15);
+}
+
+/* светлая тема */
+.cardLight .btn {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #000;
+}
+
+.cardLight .btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+
+.createForm {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input,
+.textarea {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+@media (max-width: 768px) {
+  .createForm {
+    padding: 12px;
+  }
+}
+
+
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.roleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+}
+
+.cardLight .roleChip {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+
+.roleRemove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.roleRemove:hover {
+  opacity: 1;
+}
+
+
+@media (max-width: 480px) {
+  .card {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .info strong {
+    font-size: 15px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .actions {
+    justify-content: space-between;
+  }
+}
+
+
+/* ===== LIGHT THEME: CREATE FORM ===== */
+.cardLight.createForm {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.cardLight .input,
+.cardLight .textarea {
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #000;
+}
+
+.cardLight .input::placeholder,
+.cardLight .textarea::placeholder {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.cardLight .input:focus,
+.cardLight .textarea:focus {
+  border-color: #000;
+  background: rgba(0, 0, 0, 0.05);
+}
