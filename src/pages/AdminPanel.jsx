@@ -1,21 +1,32 @@
-import React from 'react';
-import AdminHeader from '../components/Admin/AdminHeader';
-import styles from '../scss/components/adminPanel.module.scss';
-import { useAdminRouts } from '../store/useAdminRouts';
-import AdminEvents from '../components/Admin/AdminEvents';
-import AdminBlogs from '../components/Admin/AdminBlogs';
-import AdminUsers from '../components/Admin/AdminUsers';
+import { useState } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import AdminHeader from "../components/admin/AdminHeader";
+import AdminPostsSection from "../components/admin/AdminPostsSection";
+import AdminEventsSection from "../components/admin/AdminEventsSection";
+import AdminUsersSection from "../components/admin/AdminUsersSection";
+import styles from "../scss/components/Admin/adminPanel.module.scss";
 
 const AdminPanel = () => {
-  const {activeRoute} = useAdminRouts();
-  return (
-    <section className={styles.adminPanel}>
-      <AdminHeader/>
-      {activeRoute === 'blogs' && <AdminBlogs/>}
-      {activeRoute === 'events' && <AdminEvents/>}
-      {activeRoute === 'users' && <AdminUsers/>}
-    </section>
-  )
-}
+  const [activeTab, setActiveTab] = useState("posts");
 
-export default AdminPanel
+  return (
+    <>
+      <Header />
+
+      <div className={styles.container}>
+        <div className={styles.layout}>
+          <AdminHeader activeTab={activeTab} setActiveTab={setActiveTab} />
+
+          {activeTab === "posts" && <AdminPostsSection />}
+          {activeTab === "events" && <AdminEventsSection />}
+          {activeTab === "users" && <AdminUsersSection />}
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
+};
+
+export default AdminPanel;
