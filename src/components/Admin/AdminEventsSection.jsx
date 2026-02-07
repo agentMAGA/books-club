@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "../../scss/components/Admin/adminSection.module.scss";
 import { useTheme } from "../../store/useTheme";
 import { useApi } from "../../hooks/useApi";
@@ -22,14 +22,14 @@ const AdminEventsSection = () => {
     plannedAt: "",
   });
 
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     const data = await apiCall("/events");
     setEvents(data);
-  };
+  }, [apiCall]);
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, [fetchEvents]);
 
   const createEvent = async (e) => {
     e.preventDefault();
@@ -76,9 +76,12 @@ const AdminEventsSection = () => {
       <h2 className={styles.title}>Мероприятия</h2>
 
       {/* СОЗДАНИЕ */}
-      <form   className={`${styles.createForm} ${
-    theme !== "black" ? styles.cardLight : ""
-  }`} onSubmit={createEvent}>
+      <form
+        className={`${styles.createForm} ${
+          theme !== "black" ? styles.cardLight : ""
+        }`}
+        onSubmit={createEvent}
+      >
         <input
           className={styles.input}
           placeholder="Название"

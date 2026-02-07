@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useApi } from "../../hooks/useApi";
 import { useTheme } from "../../store/useTheme";
 import styles from "../../scss/components/Admin/adminSection.module.scss";
@@ -17,24 +17,23 @@ const AdminUsersSection = () => {
   const [users, setUsers] = useState([]);
   const [selectedRole, setSelectedRole] = useState({});
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     const data = await apiCall("/users");
     setUsers(data);
-  };
+  }, [apiCall]);
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   // ➕ добавить роль
   const addRole = async (userId) => {
     const roleId = selectedRole[userId];
     if (!roleId) return;
 
-    await apiCall(
-      `/admin/users/${userId}/add-role?roleId=${roleId}`,
-      { method: "POST" }
-    );
+    await apiCall(`/admin/users/${userId}/add-role?roleId=${roleId}`, {
+      method: "POST",
+    });
 
     setSelectedRole((p) => ({ ...p, [userId]: "" }));
     fetchUsers();
@@ -42,10 +41,9 @@ const AdminUsersSection = () => {
 
   // ➖ удалить роль
   const removeRole = async (userId, roleId) => {
-    await apiCall(
-      `/admin/users/${userId}/remove-role?roleId=${roleId}`,
-      { method: "POST" }
-    );
+    await apiCall(`/admin/users/${userId}/remove-role?roleId=${roleId}`, {
+      method: "POST",
+    });
 
     fetchUsers();
   };

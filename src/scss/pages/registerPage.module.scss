@@ -175,3 +175,40 @@
     cursor: not-allowed;
   }
 }
+
+
+/* ===== SAFE LIGHT THEME (REGISTER) ===== */
+.containerColor {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.containerColor .form {
+  background: #ffffff;
+}
+
+.containerColor .form .input {
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  color: #000000;
+}
+
+.containerColor .form .input::placeholder {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.containerColor .form .input:focus {
+  border-color: #000000;
+}
+
+.containerColor .error {
+  color: #d63031;
+}
+
+/* ===== BACK ICON FIX ===== */
+.backIcon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  object-fit: contain;
+}

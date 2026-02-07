@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "../../scss/components/Admin/adminSection.module.scss";
 import { useTheme } from "../../store/useTheme";
 import { useApi } from "../../hooks/useApi";
@@ -20,14 +20,14 @@ const AdminPostsSection = () => {
     description: "",
   });
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     const data = await apiCall("/posts");
     setPosts(data);
-  };
+  }, [apiCall]);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
   const createPost = async (e) => {
     e.preventDefault();
@@ -73,9 +73,12 @@ const AdminPostsSection = () => {
       <h2 className={styles.title}>Стихи</h2>
 
       {/* СОЗДАНИЕ */}
-      <form   className={`${styles.createForm} ${
-    theme !== "black" ? styles.cardLight : ""
-  }`} onSubmit={createPost}>
+      <form
+        className={`${styles.createForm} ${
+          theme !== "black" ? styles.cardLight : ""
+        }`}
+        onSubmit={createPost}
+      >
         <input
           className={styles.input}
           placeholder="Название"
