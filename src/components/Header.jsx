@@ -115,11 +115,6 @@ const Header = () => {
       {user?.firstName}
     </span>
 
-    {/* 🔧 ВРЕМЕННАЯ КНОПКА АДМИНКИ */}
-    <Link to="/admin" className={styles.adminTemp}>
-      АДМИН
-    </Link>
-
     <span className={styles.logoutLink} onClick={handleLogout}>
       ВЫЙТИ
     </span>
