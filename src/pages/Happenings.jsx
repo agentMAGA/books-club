@@ -40,7 +40,7 @@ const Happenings = () => {
       <Search />
 
       {/* ФОРМА СОЗДАНИЯ */}
-      
+
 
       {loading && <p style={{ textAlign: "center" }}>Загрузка...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
