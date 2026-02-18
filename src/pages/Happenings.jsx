@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
-import CreateEventForm from "../components/CreateEventForm";
 import styles from "../scss/pages/happenings.module.scss";
 import { useTheme } from "../store/useTheme";
 import { useApi } from "../hooks/useApi";
@@ -12,10 +11,11 @@ const Happenings = () => {
   const { apiCall } = useApi();
 
   const [events, setEvents] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     try {
       setLoading(true);
       const data = await apiCall("/events");
@@ -25,11 +25,23 @@ const Happenings = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [apiCall]);
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, [fetchEvents]);
+
+  // 🔎 Live фильтрация
+  const filteredEvents = useMemo(() => {
+    if (!searchQuery.trim()) return events;
+
+    const lower = searchQuery.toLowerCase();
+
+    return events.filter((event) =>
+      event.title.toLowerCase().includes(lower) ||
+      event.description.toLowerCase().includes(lower)
+    );
+  }, [events, searchQuery]);
 
   return (
     <div className={styles.container}>
@@ -37,13 +49,17 @@ const Happenings = () => {
 
       <h1 className={styles.titleEvents}>Мероприятия</h1>
 
-      <Search />
-
-      {/* ФОРМА СОЗДАНИЯ */}
-
+      {/* 🔎 Поиск */}
+      <Search value={searchQuery} onChange={setSearchQuery} />
 
       {loading && <p style={{ textAlign: "center" }}>Загрузка...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+
+      {!loading && filteredEvents.length === 0 && (
+        <p style={{ textAlign: "center", marginTop: "20px" }}>
+          Ничего не найдено
+        </p>
+      )}
 
       <div
         className={
@@ -52,7 +68,7 @@ const Happenings = () => {
             : `${styles.visualBackdrop} ${styles.visualBackdropColor}`
         }
       >
-        {events.map((event) => {
+        {filteredEvents.map((event) => {
           const date = new Date(event.plannedAt);
 
           return (
@@ -85,12 +101,12 @@ const Happenings = () => {
                     })}
                   </p>
 
-                  <div className={styles.usersIcon}>
+                  {/* <div className={styles.usersIcon}>
                     <img src="img/usersIcons.svg" alt="usersIcons" />
                     <span className={styles.numberUsers}>
                       {event.participants.length}
                     </span>
-                  </div>
+                  </div> */}
                 </article>
               </div>
             </div>
