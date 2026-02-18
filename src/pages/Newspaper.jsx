@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
-import CreatePostForm from "../components/CreatePostForm";
 import styles from "../scss/pages/newspaper.module.scss";
 import stylesPoem from "../scss/components/poemCard.module.scss";
 import { useTheme } from "../store/useTheme";
@@ -13,10 +12,11 @@ const Newspaper = () => {
   const { apiCall } = useApi();
 
   const [posts, setPosts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
       setLoading(true);
       const data = await apiCall("/posts");
@@ -26,11 +26,24 @@ const Newspaper = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [apiCall]);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
+
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery.trim()) return posts;
+
+    const lower = searchQuery.toLowerCase();
+
+    return posts.filter((post) =>
+      post.title.toLowerCase().includes(lower) ||
+      post.description.toLowerCase().includes(lower) ||
+      post.author.firstName.toLowerCase().includes(lower) ||
+      post.author.lastName.toLowerCase().includes(lower)
+    );
+  }, [posts, searchQuery]);
 
   return (
     <>
@@ -45,13 +58,22 @@ const Newspaper = () => {
       >
         <h1 className={styles.title}>Газета</h1>
 
-        <Search />
-
-        {/* ФОРМА СОЗДАНИЯ */}
-        
+        {/* 🔎 Live Search */}
+        <Search
+          value={searchQuery}
+          onChange={setSearchQuery}
+        />
 
         {loading && <p style={{ textAlign: "center" }}>Загрузка...</p>}
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && (
+          <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+        )}
+
+        {!loading && filteredPosts.length === 0 && (
+          <p style={{ marginTop: "20px", textAlign: "center" }}>
+            Ничего не найдено
+          </p>
+        )}
 
         <div
           className={styles.cards}
@@ -61,7 +83,7 @@ const Newspaper = () => {
             alignItems: "center",
           }}
         >
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <div
               key={post.id}
               className={
