@@ -1,4 +1,4 @@
-import styles from "../../scss/components/a/adminHeader.module.scss";
+import styles from "../../scss/components/admin/adminHeader.module.scss";
 import { useTheme } from "../../store/useTheme";
 
 const AdminHeader = ({ activeTab, setActiveTab }) => {
