@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useAuthStore } from "../store/authStore";
-import apiCall from "../API/apiClient"
+import apiCall from "../API/apiClient";
+import { isTokenExpired } from "../utils/jwt";
 
 export const useApi = () => {
   const token = useAuthStore((state) => state.token);
@@ -17,6 +18,11 @@ export const useApi = () => {
       }
 
       if (token) {
+        if (isTokenExpired(token)) {
+          logout();
+          throw new Error("Сессия истекла. Войдите снова.");
+        }
+
         headers.Authorization = `Bearer ${token}`;
       }
 
@@ -26,7 +32,7 @@ export const useApi = () => {
           headers,
         });
       } catch (error) {
-        if (error.message.includes("401")) {
+        if (error.message.includes("401") || error.message.includes("Сессия истекла")) {
           logout();
         }
         throw error;
