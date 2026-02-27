@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import AdminHeader from "../components/Admin/AdminHeader";
-import AdminPostsSection from "../components/Admin/AdminPostsSection";
-import AdminEventsSection from "../components/Admin/AdminEventsSection";
-import AdminUsersSection from "../components/Admin/AdminUsersSection";
+import AdminHeader from "../components/admin/AdminHeader";
+import AdminPostsSection from "../components/admin/AdminPostsSection";
+import AdminEventsSection from "../components/admin/AdminEventsSection";
+import AdminUsersSection from "../components/admin/AdminUsersSection";
 import styles from "../scss/components/admin/adminPanel.module.scss";
 
 const AdminPanel = () => {

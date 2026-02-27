@@ -6,6 +6,7 @@ import { useTheme } from "../store/useTheme";
 import { useApi } from "../hooks/useApi";
 import { useAuthStore } from "../store/authStore";
 import Header from "../components/Header";
+import { getRoleColor, getRoleLabel, sortRolesByPriority } from "../utils/roles";
 
 const Settings = () => {
   const { theme } = useTheme();
@@ -34,9 +35,16 @@ const Settings = () => {
     }
   }, [user]);
 
+  const getInitials = (fn = "", ln = "") => {
+    const cleanFirstName = String(fn).trim();
+    const cleanLastName = String(ln).trim();
+    return `${cleanLastName.charAt(0)}${cleanFirstName.charAt(0)}`.toUpperCase() || "?";
+  };
+
   const isDirty =
     initialUser &&
     (firstName !== initialUser.firstName || lastName !== initialUser.lastName);
+  const sortedRoles = sortRolesByPriority(user?.roles || []);
 
   const saveProfile = async () => {
     console.log("saveProfile called");
@@ -99,7 +107,7 @@ const Settings = () => {
       <div className={styles.pageHeader}>
         <Link to="/" className={styles.back}>
           <img
-            src={theme === "black" ? "img/back.svg" : "img/backBleack.svg"}
+            src={theme === "black" ? "/img/back.svg" : "/img/backBleack.svg"}
             alt="back"
           />
         </Link>
@@ -109,10 +117,10 @@ const Settings = () => {
 
       {/* AVATAR */}
       <div className={styles.avatar}>
-        <img className={styles.avatarImg} src="img/avatar.jpg" alt="avatar" />
+        <span className={styles.avatarInitials}>{getInitials(firstName, lastName)}</span>
         <img
           className={styles.editAvatar}
-          src="img/edit-avatar.svg"
+          src="/img/edit-avatar.svg"
           alt="edit"
         />
       </div>
@@ -135,6 +143,35 @@ const Settings = () => {
             onChange={(e) => setLastName(e.target.value)}
             placeholder="Фамилия"
           />
+
+          <div className={styles.rolesBlock}>
+            <p className={styles.rolesTitle}>Мои роли</p>
+            <div className={styles.rolesList}>
+              {sortedRoles.map((role) => {
+                const roleColor = getRoleColor(role);
+                return (
+                  <span
+                    key={role.id}
+                    className={styles.roleChip}
+                    style={
+                      roleColor
+                        ? {
+                            backgroundColor: roleColor.background,
+                            borderColor: roleColor.border,
+                            color: roleColor.text,
+                          }
+                        : undefined
+                    }
+                  >
+                    {getRoleLabel(role)}
+                  </span>
+                );
+              })}
+              {sortedRoles.length === 0 && (
+                <span className={styles.roleEmpty}>Роли не назначены</span>
+              )}
+            </div>
+          </div>
         </section>
 
         {isDirty && (

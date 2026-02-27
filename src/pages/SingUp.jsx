@@ -24,7 +24,7 @@ export default function SingUp() {
       <header className={styles.header}>
         <button type="button" className={styles.backBtn} onClick={back} aria-label="Назад">
           {/* <NavLink to="/"> */}
-          <img src={theme === 'black' ? "img/back.svg" : "img/backBleack.svg"} alt="back" onClick={()=>navigate(-1)} />
+          <img src={theme === 'black' ? "/img/back.svg" : "/img/backBleack.svg"} alt="back" onClick={()=>navigate(-1)} />
           {/* </NavLink> */}
         </button>
       </header>
@@ -32,7 +32,7 @@ export default function SingUp() {
       {/* Прокручиваемая область контента */}
       <div className={styles.contentScroll}>
         <div className={styles.logo}>
-          <NavLink to="/"><img src={theme === 'black' ? "img/logo.svg" : "img/logo-bleack.svg"} alt="Logo" /></NavLink>
+          <NavLink to="/"><img src={theme === 'black' ? "/img/logo.svg" : "/img/logo-bleack.svg"} alt="Logo" /></NavLink>
           <h1 className={styles.title}>
             Анкета <br />
             <span>для регистрации</span>

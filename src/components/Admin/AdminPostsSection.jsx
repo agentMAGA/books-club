@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import styles from "../../scss/components/admin/adminSection.module.scss";
 import { useTheme } from "../../store/useTheme";
 import { useApi } from "../../hooks/useApi";
@@ -19,6 +19,7 @@ const AdminPostsSection = () => {
     title: "",
     description: "",
   });
+  const editTitleRef = useRef(null);
 
   const fetchPosts = useCallback(async () => {
     const data = await apiCall("/posts");
@@ -50,15 +51,37 @@ const AdminPostsSection = () => {
     });
   };
 
+  useEffect(() => {
+    if (editingId && editTitleRef.current) {
+      editTitleRef.current.focus();
+    }
+  }, [editingId]);
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setEditForm({ title: "", description: "" });
+  };
+
   const saveEdit = async (id) => {
     await apiCall(`/posts/${id}/change`, {
       method: "PUT",
       body: JSON.stringify(editForm),
     });
 
-    setEditingId(null);
-    setEditForm({ title: "", description: "" });
+    cancelEdit();
     fetchPosts();
+  };
+
+  const handleEditKeyDown = (e, id) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      saveEdit(id);
+    }
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      cancelEdit();
+    }
   };
 
   const deletePost = async (id) => {
@@ -102,6 +125,10 @@ const AdminPostsSection = () => {
       <div className={styles.list}>
         {posts.map((post) => {
           const isEdit = editingId === post.id;
+          const isEditChanged =
+            editForm.title !== post.title ||
+            editForm.description !== post.description;
+          const canSave = Boolean(editForm.title && editForm.description && isEditChanged);
 
           return (
             <div
@@ -114,16 +141,19 @@ const AdminPostsSection = () => {
                 {isEdit ? (
                   <>
                     <input
+                      ref={editTitleRef}
                       className={styles.input}
                       value={editForm.title}
+                      onKeyDown={(e) => handleEditKeyDown(e, post.id)}
                       onChange={(e) =>
                         setEditForm({ ...editForm, title: e.target.value })
                       }
                     />
                     <textarea
                       className={styles.textarea}
-                      rows={4}
+                      rows={8}
                       value={editForm.description}
+                      onKeyDown={(e) => handleEditKeyDown(e, post.id)}
                       onChange={(e) =>
                         setEditForm({
                           ...editForm,
@@ -148,6 +178,7 @@ const AdminPostsSection = () => {
                     <button
                       type="button"
                       className={styles.btn}
+                      disabled={!canSave}
                       onClick={() => saveEdit(post.id)}
                     >
                       Сохранить
@@ -155,7 +186,7 @@ const AdminPostsSection = () => {
                     <button
                       type="button"
                       className={styles.btn}
-                      onClick={() => setEditingId(null)}
+                      onClick={cancelEdit}
                     >
                       Отмена
                     </button>

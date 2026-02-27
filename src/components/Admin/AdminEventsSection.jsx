@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import styles from "../../scss/components/admin/adminSection.module.scss";
 import { useTheme } from "../../store/useTheme";
 import { useApi } from "../../hooks/useApi";
@@ -21,6 +21,7 @@ const AdminEventsSection = () => {
     description: "",
     plannedAt: "",
   });
+  const editTitleRef = useRef(null);
 
   const fetchEvents = useCallback(async () => {
     const data = await apiCall("/events");
@@ -53,15 +54,37 @@ const AdminEventsSection = () => {
     });
   };
 
+  useEffect(() => {
+    if (editingId && editTitleRef.current) {
+      editTitleRef.current.focus();
+    }
+  }, [editingId]);
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setEditForm({ title: "", description: "", plannedAt: "" });
+  };
+
   const saveEdit = async (id) => {
     await apiCall(`/events/${id}/change`, {
       method: "PUT",
       body: JSON.stringify(editForm),
     });
 
-    setEditingId(null);
-    setEditForm({ title: "", description: "", plannedAt: "" });
+    cancelEdit();
     fetchEvents();
+  };
+
+  const handleEditKeyDown = (e, id) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      saveEdit(id);
+    }
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      cancelEdit();
+    }
   };
 
   const deleteEvent = async (id) => {
@@ -112,6 +135,11 @@ const AdminEventsSection = () => {
       <div className={styles.list}>
         {events.map((event) => {
           const isEdit = editingId === event.id;
+          const isEditChanged =
+            editForm.title !== event.title ||
+            editForm.description !== event.description ||
+            editForm.plannedAt !== event.plannedAt.slice(0, 16);
+          const canSave = Boolean(editForm.title && editForm.plannedAt && isEditChanged);
 
           return (
             <div
@@ -124,15 +152,19 @@ const AdminEventsSection = () => {
                 {isEdit ? (
                   <>
                     <input
+                      ref={editTitleRef}
                       className={styles.input}
                       value={editForm.title}
+                      onKeyDown={(e) => handleEditKeyDown(e, event.id)}
                       onChange={(e) =>
                         setEditForm({ ...editForm, title: e.target.value })
                       }
                     />
                     <textarea
                       className={styles.textarea}
+                      rows={8}
                       value={editForm.description}
+                      onKeyDown={(e) => handleEditKeyDown(e, event.id)}
                       onChange={(e) =>
                         setEditForm({
                           ...editForm,
@@ -144,6 +176,7 @@ const AdminEventsSection = () => {
                       className={styles.input}
                       type="datetime-local"
                       value={editForm.plannedAt}
+                      onKeyDown={(e) => handleEditKeyDown(e, event.id)}
                       onChange={(e) =>
                         setEditForm({
                           ...editForm,
@@ -168,6 +201,7 @@ const AdminEventsSection = () => {
                     <button
                       type="button"
                       className={styles.btn}
+                      disabled={!canSave}
                       onClick={() => saveEdit(event.id)}
                     >
                       Сохранить
@@ -175,7 +209,7 @@ const AdminEventsSection = () => {
                     <button
                       type="button"
                       className={styles.btn}
-                      onClick={() => setEditingId(null)}
+                      onClick={cancelEdit}
                     >
                       Отмена
                     </button>

@@ -1,73 +1,71 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Header from "../components/Header";
 import styles from "../scss/pages/rating.module.scss";
 import Footer from "../components/Footer";
 import Search from "../components/Search";
 import { useTheme } from "../store/useTheme";
-
-const USERS = [
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 1,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 2,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 3,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 4,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 5,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 6,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 7,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 8,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 9,
-    avatar: null,
-  },
-  {
-    firstName: "Иван",
-    lastName: "Иванов",
-    position: 10,
-    avatar: null,
-  },
-];
+import { useApi } from "../hooks/useApi";
+import { getHighestRoleLabel, sortRolesByPriority } from "../utils/roles";
 
 const Rating = () => {
+  const { theme } = useTheme();
+  const { apiCall } = useApi();
+
+  const [users, setUsers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchUsers = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await apiCall("/users");
+      setUsers(Array.isArray(data) ? data : []);
+    } catch (err) {
+      setError(err.message || "Ошибка загрузки рейтинга");
+    } finally {
+      setLoading(false);
+    }
+  }, [apiCall]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
+
+  const rankedUsers = useMemo(() => {
+    const sorted = [...users].sort((a, b) => {
+      const aPriority = sortRolesByPriority(a.roles || [])[0]?.id || 0;
+      const bPriority = sortRolesByPriority(b.roles || [])[0]?.id || 0;
+
+      if (aPriority !== bPriority) return bPriority - aPriority;
+
+      const aName = `${a.lastName || ""} ${a.firstName || ""}`.trim().toLowerCase();
+      const bName = `${b.lastName || ""} ${b.firstName || ""}`.trim().toLowerCase();
+      return aName.localeCompare(bName, "ru");
+    });
+
+    const ranked = sorted.map((user, index) => ({
+      ...user,
+      position: index + 1,
+      topRole: getHighestRoleLabel(user.roles || []),
+    }));
+
+    return ranked.filter((user) => {
+      const query = searchQuery.trim().toLowerCase();
+      if (!query) return true;
+
+      return (
+        `${user.firstName || ""} ${user.lastName || ""}`.toLowerCase().includes(query) ||
+        (user.email || "").toLowerCase().includes(query) ||
+        (getHighestRoleLabel(user.roles || []) || "").toLowerCase().includes(query)
+      );
+    });
+  }, [searchQuery, users]);
+
+  const getInitials = (firstName = "", lastName = "") =>
+    `${String(firstName).trim().charAt(0)}${String(lastName).trim().charAt(0)}`.toUpperCase() || "?";
+
   const getCardClassName = (position) => {
     const baseClass = styles.card; 
     
@@ -83,8 +81,6 @@ const Rating = () => {
     }
   };
 
-  const { theme } = useTheme();
-
   return (
     <>
       <Header />
@@ -93,11 +89,17 @@ const Rating = () => {
           Рейтинг
         </h1>
 
-        <Search/>
+        <Search value={searchQuery} onChange={setSearchQuery} />
+
+        {loading && <p style={{ textAlign: "center" }}>Загрузка...</p>}
+        {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+        {!loading && !error && rankedUsers.length === 0 && (
+          <p style={{ textAlign: "center" }}>Ничего не найдено</p>
+        )}
 
         <div className={styles.cards}>
-          {USERS.map((item) => (
-            <article className={getCardClassName(item.position)} key={item.position}>
+          {rankedUsers.map((item) => (
+            <article className={getCardClassName(item.position)} key={item.id}>
               <div
                 style={{
                   display: "flex",
@@ -110,7 +112,7 @@ const Rating = () => {
                   <img src={item.avatar} alt="" />
                 ) : (
                   <div className={styles.avatarCircle}>
-                    {item.firstName.slice(0, 1) + item.lastName.slice(0, 1)}
+                    {getInitials(item.firstName, item.lastName)}
                   </div>
                 )}
                 <div>

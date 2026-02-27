@@ -9,6 +9,9 @@
 
 .visualBackdrop {
     margin: 40px 15px 0 15px;
+    width: calc(100% - 30px);
+    max-width: 960px;
+    box-sizing: border-box;
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.27);
     display: flex;
@@ -17,6 +20,7 @@
     padding: 15px 30px 30px 30px;
     gap: 20px;
     color: white;
+    overflow: hidden;
     box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
     transition: transform 0.5s ease-in-out;
 
@@ -51,6 +55,7 @@
         align-items: center;
         gap: 20px;
         width: 100%;
+        min-width: 0;
         border: 1px solid #ffffff;
         border-radius: 30px;
         background-color: #141619; 
@@ -72,6 +77,8 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            overflow-wrap: anywhere;
+            word-break: break-word;
             line-height: 1.4;                // ← важно: чтобы высота строки была предсказуемой
             max-height: calc(1.4em * 4);     // ← резервная защита для браузеров без поддержки -webkit-line-clamp
 
@@ -93,7 +100,7 @@
             -webkit-backdrop-filter: blur(8px);
             /* ← для Safari и iOS */
             backdrop-filter: blur(8px);
-            margin: 0 0 0 -18px;
+            margin: 0;
             border-radius: 5px;
             border: 2px solid #ffffff;
             display: flex;
@@ -116,7 +123,7 @@
             -webkit-backdrop-filter: blur(8px);
             /* ← для Safari и iOS */
             backdrop-filter: blur(8px);
-            margin: 0 -18px 0 0;
+            margin: 0;
             border-radius: 5px;
             border: 2px solid #ffffff;
             display: flex;
@@ -163,5 +170,21 @@
             }
         }
 
+    }
+}
+
+@media (max-width: 767px) {
+    .visualBackdrop {
+        padding: 12px 14px 18px 14px;
+    }
+
+    .visualBackdrop .subtextOfTheEvent {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .visualBackdrop .subtextOfTheEvent .leftArrow,
+    .visualBackdrop .subtextOfTheEvent .rightArrow {
+        flex: 0 0 auto;
     }
 }

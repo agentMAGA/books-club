@@ -9,9 +9,12 @@ export const useApi = () => {
   const call = useCallback(
     async (endpoint, options = {}) => {
       const headers = {
-        "Content-Type": "application/json",
         ...(options.headers || {}),
       };
+
+      if (options.body && !headers["Content-Type"]) {
+        headers["Content-Type"] = "application/json";
+      }
 
       if (token) {
         headers.Authorization = `Bearer ${token}`;
@@ -23,10 +26,7 @@ export const useApi = () => {
           headers,
         });
       } catch (error) {
-        if (
-          error.message.includes("401") ||
-          error.message.includes("403")
-        ) {
+        if (error.message.includes("401")) {
           logout();
         }
         throw error;
