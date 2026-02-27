@@ -1,21 +1,166 @@
+.container {
+  min-height: 100vh;
+  width: min(960px, calc(100vw - 30px));
+  margin: 0 auto;
+  padding: 20px 0 36px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
 .containerColor {
   color: #000000 !important;
 }
-.container {
-  min-height: 100vh;
-  padding: 20px;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
 
-  .title {
-    margin: 50px 0 80px;
-    font-size: 7vw;
-    text-align: center;
+.title {
+  margin: 50px 0 56px;
+  font-size: clamp(36px, 7vw, 68px);
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.poemCard {
+  background: linear-gradient(180deg, #1a1e24 0%, #141619 100%);
+  border: 1px solid #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 10px;
+  min-height: 260px;
+  box-sizing: border-box;
+}
+
+.poemCardLight {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+  border: 1px solid #000000 !important;
+  color: #000000;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cardType,
+.cardAuthor {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  opacity: 0.9;
+  white-space: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardBody {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.titleLine {
+  margin: 0 0 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardContent {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.date {
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.85;
+}
+
+@media (min-width: 830px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .poemCard {
+    min-height: 290px;
+    padding: 16px;
+  }
+
+  .cardType,
+  .cardAuthor {
+    font-size: 14px;
+  }
+
+  .titleLine {
+    font-size: 22px;
+  }
+
+  .cardContent {
+    font-size: 16px;
+    -webkit-line-clamp: 8;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    width: calc(100vw - 24px);
+  }
+
+  .title {
+    margin: 40px 0 42px;
+  }
+
+  .poemCard {
+    border-radius: 18px;
+    min-height: 0;
+  }
+
+  .cardType,
+  .cardAuthor {
+    font-size: 12px;
+  }
+
+  .titleLine {
+    font-size: 18px;
+  }
+
+  .cardContent {
+    font-size: 14px;
+    -webkit-line-clamp: 6;
   }
 }

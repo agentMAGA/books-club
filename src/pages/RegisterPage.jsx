@@ -69,14 +69,14 @@ const RegisterPage = () => {
     >
       <header className={styles.header}>
         <NavLink to="/">
-          <img src={theme === "black" ? "img/back.svg" : "img/backBleack.svg"} alt="back" className={styles.backIcon} />
+          <img src={theme === "black" ? "/img/back.svg" : "/img/backBleack.svg"} alt="back" className={styles.backIcon} />
         </NavLink>
       </header>
 
       <div className={styles.logo}>
         <NavLink to="/">
           <img
-            src={theme === "black" ? "img/logo.svg" : "img/logo-bleack.svg"} // ✅
+            src={theme === "black" ? "/img/logo.svg" : "/img/logo-bleack.svg"} // ✅
             alt="logo"
           />
         </NavLink>

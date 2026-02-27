@@ -1,156 +1,197 @@
 .search {
-    width: 100%;
-    max-width: 395px;
-    margin: 0 auto 30px;
-    display: flex;
-    border: 1px solid #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
+  width: 100%;
+  max-width: 395px;
+  margin: 0 auto 30px;
+  display: flex;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .titleEvents {
-    margin: 60px 0 60px 0;
-    font-size: 8vw;
-    font-family: "Cormorant Garamond";
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-
-}
-
-.visualBackdropColor {
-    background: rgba(209, 209, 209, 0.65) !important;
-    color: rgb(0, 0, 0) !important;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.7) !important;
+  margin: 48px 0 40px;
+  font-size: clamp(36px, 8vw, 72px);
+  font-family: "Cormorant Garamond";
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .visualBackdrop {
-    margin: 4vw 4.5vw 0 4.5vw;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.27);
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 10px;
-    padding: 15px 30px 30px 30px;
-    color: white;
-    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.1);
+  width: min(960px, calc(100vw - 30px));
+  margin: 0 auto;
+  border-radius: 30px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding: 16px;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(8, 11, 18, 0.25), 0 0 24px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+}
 
-    @media (min-width: 940px) {
-        margin: 0 auto;
-    }
+.visualBackdropColor {
+  background: rgba(209, 209, 209, 0.65) !important;
+  color: #000000 !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.7) !important;
+}
 
-    @media (min-width: 830px) {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 900px;
+.subtextOfTheEvent {
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #1a1e24 0%, #141619 100%);
+  padding: 14px;
+  min-height: 230px;
+  box-sizing: border-box;
+}
 
+.cardClickable {
+  cursor: pointer;
+}
 
-        .subtextOfTheEvent {
-            width: 100%;
-            max-width: 338px;
-            margin: 0;
-        }
-    }
+.subtextOfColor {
+  border: 1px solid #000000 !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%) !important;
+  color: #000000;
+}
 
-    @media (max-width: 428px) {
-        .subtextOfTheEvent {
-            width: 100%;
-            height: 100%;
+.suvent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+}
 
+.monstratStyls400 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-            p {
-                -webkit-line-clamp: 3 !important;
-            }
+.monstratStyls300 {
+  font-family: "Montserrat";
+  font-weight: 300;
+  line-height: 1.45;
+}
 
-            .suvent {
+.eventDescription {
+  margin-top: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 
-                .monstratStyls400 {
-                    font-size: 4.4vw !important;
-                }
+.timeRangeDate {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-                .monstratStyls300 {
-                    font-size: 3.7vw !important;
-                }
+.eventMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
 
-                .usersIcon {
-                    margin: 18px auto auto 4.4vw !important;
-                }
-            }
-        }
-    }
+.usersIcon {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+}
 
-    .subtextOfColor {
-        border: 1px solid #000000 !important;
-        background-color: #fbfdff !important;
-        .usersIcon{
-            border: 1px solid #000000 !important;
-        }
-    }
+.subtextOfColor .usersIcon {
+  border-color: #000000;
+}
 
-    .subtextOfTheEvent {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        max-width: 338px;
-        max-height: 180px;
-        border: 1px solid #ffffff;
-        border-radius: 30px;
-        background-color: #141619;
-        margin: 20px 0 0 0;
-        padding: 10px;
+.usersIcon img {
+  width: 30px;
+  height: 18px;
+}
 
-        p {
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.numberUsers {
+  font-size: 18px;
+  line-height: 1;
+}
 
+.eventActionButton {
+  margin-left: auto;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: inherit;
+  padding: 8px 12px;
+  font-family: "Montserrat";
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
 
+.eventActionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
-        .suvent {
-            padding: 0 0 0 20px;
+.eventCancelButton {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
+}
 
-            .monstratStyls400 {
-                font-family: "Montserrat";
-                font-weight: 400;
-                font-size: 19px;
-            }
+@media (min-width: 830px) {
+  .visualBackdrop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
 
-            .monstratStyls300 {
-                font-family: "Montserrat";
-                font-weight: 300;
-                font-style: normal;
-            }
+  .subtextOfTheEvent {
+    min-height: 250px;
+  }
+}
 
-            .timeRangeDate {
-                display: flex;
-                flex-wrap: wrap;
-                margin: -20px 0 0 0;
+@media (max-width: 520px) {
+  .subtextOfTheEvent {
+    min-height: 0;
+  }
 
-                .usersIcon {
-                    border: 1px solid #ffffff;
-                    border-radius: 7px;
-                    margin: 18px 0 auto 44px;
-                    display: flex;
-                    flex-wrap: wrap;
-                    padding: 5px 5px 0 0;
+  .monstratStyls400 {
+    font-size: 17px;
+  }
 
-                    img {
-                        height: 24px;
-                        width: 45px;
-                        margin: 0 0 0 0;
-                    }
+  .monstratStyls300 {
+    font-size: 14px;
+  }
 
-                    .numberUsers {
-                        margin: -2px 0 0 0;
-                        font-size: 20px;
-                    }
+  .eventMetaRow {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
 
-                }
-            }
-        }
-    }
+  .eventActionButton {
+    width: 100%;
+    margin-left: 0;
+  }
 }

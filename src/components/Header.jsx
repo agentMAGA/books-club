@@ -4,13 +4,14 @@ import styles from "../scss/components/header.module.scss";
 import BurgerMenu from "./BurgerMenu";
 import { useTheme } from "../store/useTheme";
 import { useAuthStore } from "../store/authStore";
+import { hasRole } from "../utils/roles";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { isAuthenticated, user, logout } = useAuthStore();
   const navigate = useNavigate();
 
-  const isAdmin = user?.roles?.some(r => r.name === "ROLE_RED");
+  const isAdmin = hasRole(user, "RED");
 
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => setMenuOpen(true);
@@ -29,14 +30,14 @@ const Header = () => {
         {/* LOGO */}
         <NavLink to="/" className={styles.headerIcon}>
           <img
-            src={theme === "black" ? "img/logo.svg" : "img/logo-bleack.svg"}
+            src={theme === "black" ? "/img/logo.svg" : "/img/logo-bleack.svg"}
             alt="logo"
           />
           <img
             src={
               theme === "black"
-                ? "img/logo-text.svg"
-                : "img/logo-text-bleack.svg"
+                ? "/img/logo-text.svg"
+                : "/img/logo-text-bleack.svg"
             }
             alt="logo-text"
           />
@@ -47,8 +48,8 @@ const Header = () => {
           className={styles.burgerMenu}
           src={
             theme === "black"
-              ? "img/burger-menu.svg"
-              : "img/burger-menu-bleack.jpg"
+              ? "/img/burger-menu.svg"
+              : "/img/burger-menu-bleack.jpg"
           }
           alt="menu"
           onClick={openMenu}
@@ -103,7 +104,7 @@ const Header = () => {
             onClick={toggleTheme}
           >
             <img
-              src={theme === "black" ? "img/logo-bleack.svg" : "img/logo.svg"}
+              src={theme === "black" ? "/img/logo-bleack.svg" : "/img/logo.svg"}
               alt="theme"
             />
           </div>

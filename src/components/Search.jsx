@@ -24,8 +24,8 @@ const Search = ({ value, onChange }) => {
         <img
           src={
             theme === "black"
-              ? "img/search-Icon.svg"
-              : "img/search-bleack.svg"
+              ? "/img/search-Icon.svg"
+              : "/img/search-bleack.svg"
           }
           alt="search"
         />

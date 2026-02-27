@@ -8,6 +8,17 @@ const BurgerMenu = ({ closeMenu }) => {
   const { user, isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
 
+  const getInitials = (firstName = "", lastName = "", username = "") => {
+    const ln = String(lastName).trim();
+    const fn = String(firstName).trim();
+
+    if (ln || fn) {
+      return `${ln.charAt(0)}${fn.charAt(0)}`.toUpperCase();
+    }
+
+    return String(username).trim().charAt(0).toUpperCase() || "?";
+  };
+
   const handleLogout = () => {
     logout();
     closeMenu();
@@ -21,23 +32,21 @@ const BurgerMenu = ({ closeMenu }) => {
         onClick={closeMenu}
         aria-label="Закрыть меню"
       >
-        <img src={theme === 'black' ? "img/closeMenu.svg" : "img/closeMenuBleack.svg"} alt="closeMenu" />
+        <img src={theme === 'black' ? "/img/closeMenu.svg" : "/img/closeMenuBleack.svg"} alt="closeMenu" />
       </button>
 
       <div className={theme === 'black' ? styles.logoColors : `${styles.logoColors} ${styles.logoBleack}`}
         onClick={() => toggleTheme()}>
-        <img src={theme === 'black' ? "img/logo-bleack.svg" : "img/logo.svg"} alt="logo" />
+        <img src={theme === 'black' ? "/img/logo-bleack.svg" : "/img/logo.svg"} alt="logo" />
       </div>
 
       {/* ✅ ДИНАМИЧЕСКИЙ ПРОФИЛЬ */}
       {isAuthenticated ? (
         <div className={styles.profile}>
           <div className={styles.avatar}>
-            <img
-              className={styles.avatarImg}
-              src="img/avatar.jpg"
-              alt={`${user?.firstName || ''} ${user?.lastName || ''}`}
-            />
+            <span className={styles.avatarInitials}>
+              {getInitials(user?.firstName, user?.lastName, user?.username)}
+            </span>
           </div>
           <div className={styles.name}>
             {user?.firstName || user?.username || 'Пользователь'}

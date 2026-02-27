@@ -53,7 +53,7 @@ const SlayderSessions = function () {
                     <button onClick={setEventsMinus} aria-label="Предыдущий">‹</button>
                 </nav>
 
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 1, minWidth: 0 }}>
                     <article>
                         <p>
                             <strong className={styles.monstratStyls400}>

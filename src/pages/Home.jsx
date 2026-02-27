@@ -4,9 +4,11 @@ import SlayderSessions from "../components/SlayderSessions";
 import Footer from "../components/Footer";
 import PoemCard from "../components/PoemCard";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 function Home() {
   const navigate = useNavigate();
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   return (
     <>
       <Header />
@@ -14,7 +16,12 @@ function Home() {
         <section className={styles.innerSpacingBanner}>
           <h1 className={styles.titleStyls}>Books Club</h1>
           <p className={styles.subtextTitle + " " +styles.tecstUppercase}>Космос идей. Вселенная книг.</p>
-          <button className={styles.tecstUppercase + " " + styles.buttonFonts}  onClick={()=>navigate("/registration")}>Присоединиться</button>
+          <button
+            className={styles.tecstUppercase + " " + styles.buttonFonts}
+            onClick={() => navigate(isAuthenticated ? "/settings" : "/registration")}
+          >
+            Присоединиться
+          </button>
         </section>
         <section className={styles.innerSpacing}>
           <h2 className={styles.titleCenter}>О нас </h2>
@@ -44,9 +51,9 @@ function Home() {
 
         <div className={styles.cards}>
           <div className={styles.h3title}>
-            <img src="img/zvezda.svg" alt="zvezda" />
+            <img src="/img/zvezda.svg" alt="zvezda" />
             <h3>Газета</h3>
-            <img src="img/zvezda.svg" alt="zvezda" />
+            <img src="/img/zvezda.svg" alt="zvezda" />
           </div>
 
           <PoemCard />

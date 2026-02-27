@@ -80,15 +80,15 @@ const LoginPage = () => {
       <div className={styles.logo}>
         <NavLink to="/">
           <img
-            src={theme === "black" ? "img/logo.svg" : "img/logo-bleack.svg"}
+            src={theme === "black" ? "/img/logo.svg" : "/img/logo-bleack.svg"}
             alt="logo"
             className={styles.logo}
           />
           <img
             src={
               theme === "black"
-                ? "img/logo-text.svg"
-                : "img/logo-text-bleack.svg"
+                ? "/img/logo-text.svg"
+                : "/img/logo-text-bleack.svg"
             }
             alt="logo-text"
             className={styles.logoText}
