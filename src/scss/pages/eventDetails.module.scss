@@ -44,9 +44,12 @@
 }
 
 .card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 22px;
-  background: linear-gradient(180deg, #1a1e24 0%, #141619 100%);
+  background-color: #000000;
   padding: 18px;
   box-sizing: border-box;
 }
@@ -85,6 +88,8 @@
   margin: 0 0 16px;
   line-height: 1.55;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .manager {
@@ -104,9 +109,21 @@
   cursor: pointer;
 }
 
+.pageLight .actionButton {
+  border-color: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.08);
+  color: #000000;
+}
+
 .cancelButton {
   border-color: #ff6b6b;
   color: #ff6b6b;
+}
+
+.pageLight .cancelButton {
+  border-color: #d93a3a;
+  color: #d93a3a;
+  background: rgba(217, 58, 58, 0.08);
 }
 
 .actionButton:disabled {
@@ -136,6 +153,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .cardLight .participantItem {
@@ -150,6 +168,8 @@
 .participantEmail {
   font-size: 13px;
   opacity: 0.78;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .rolesRow {
