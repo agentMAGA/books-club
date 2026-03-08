@@ -123,6 +123,14 @@
   }
 }
 
+.noClamp {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: initial !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
 .cardFooter {
   display: flex;
   justify-content: flex-end;
