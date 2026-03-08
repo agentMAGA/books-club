@@ -100,8 +100,8 @@ const Newspaper = () => {
               </div>
 
               <div className={stylesPoem.cardBody}>
-                <div className={stylesPoem.titleLine}>{post.title}</div>
-                <pre className={stylesPoem.cardContent}>
+                <div className={`${stylesPoem.titleLine} ${stylesPoem.noClamp}`}>{post.title}</div>
+                <pre className={`${stylesPoem.cardContent} ${stylesPoem.noClamp}`}>
                   {post.description}
                 </pre>
               </div>
